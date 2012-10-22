@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps:com.springsource.petclinic.domain.Pet" object="${pet}" z="iisq9URTGZhm+Q47bLUWfewHqc0=">
+        <field:display field="sendReminders" id="s:com.springsource.petclinic.domain.Pet.sendReminders" object="${pet}" z="bGQJQvJ/AiItXtkEUeUNKt75WHs="/>
+        <field:display field="name" id="s:com.springsource.petclinic.domain.Pet.name" object="${pet}" z="/7FCj3xnyAADSqb4aWfogGm0C24="/>
+        <field:display field="weight" id="s:com.springsource.petclinic.domain.Pet.weight" object="${pet}" z="3vcFV6+dN/9nkUZHYescdiPUUo4="/>
+        <field:display field="owner" id="s:com.springsource.petclinic.domain.Pet.owner" object="${pet}" z="txquruv3IQ/T/DRRlZPkA7t0niA="/>
+        <!--  <field:select disableFormBinding="true" field="owner" id="f:com.springsource.petclinic.domain.Pet.owner" itemValue="id" items="${pet}" path="/owners" z="2OVbMcy+p6RzYjCEE57e3eB9L70="/> -->
+        <field:display field="type" id="s:com.springsource.petclinic.domain.Pet.type" object="${pet}" z="Ho/CWYJSyGxAs0tb1OeRvSnH8Bg="/>
+    </page:show>
+</div>

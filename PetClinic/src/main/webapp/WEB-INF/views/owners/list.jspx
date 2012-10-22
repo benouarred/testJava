@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl:com.springsource.petclinic.domain.Owner" items="${owners}" z="wXWhI5Pw/tW5vhu063PChUzjwno=">
+        <table:table data="${owners}" id="l:com.springsource.petclinic.domain.Owner" path="/owners" z="wgosH2gY5t1AwKL1zfMFy7IqSK8=">
+            <table:column id="c:com.springsource.petclinic.domain.Owner.firstName" property="firstName" z="iK+Ticj8t/jbbg3r+ujbPdwbLR8="/>
+            <table:column id="c:com.springsource.petclinic.domain.Owner.lastName" property="lastName" z="tK7+TjkR8LpdAKmBFS0QXakoOUY="/>
+            <table:column id="c:com.springsource.petclinic.domain.Owner.address" property="address" z="N0W1ayiF+5l5ClE1JS3sDklJcsM="/>
+            <table:column id="c:com.springsource.petclinic.domain.Owner.city" property="city" z="Nm/sc12oPSyl0RCp7LRMNV3VeAo="/>
+            <table:column id="c:com.springsource.petclinic.domain.Owner.telephone" property="telephone" z="ereYqiCzYgLWdjXKI41MM+WBRpA="/>
+            <table:column id="c:com.springsource.petclinic.domain.Owner.homePage" property="homePage" z="ye4GpntIzw84BXQlfrjJuvlUmig="/>
+        </table:table>
+    </page:list>
+</div>
