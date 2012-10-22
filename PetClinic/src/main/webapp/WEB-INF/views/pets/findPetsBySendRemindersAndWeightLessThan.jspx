@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="BySendRemindersAndWeightLessThan" id="ff:com.springsource.petclinic.domain.Pet" path="/pets" z="tbJwxo3DewR/GDfo1t5qwRI+4hE=">
+        <field:checkbox disableFormBinding="true" field="sendReminders" id="f:com.springsource.petclinic.domain.Pet.sendReminders" z="p3G/W7QKOF44/BnQ8kpslZJtt0w="/>
+        <field:input disableFormBinding="true" field="weight" id="f:com.springsource.petclinic.domain.Pet.weight" min="0" required="true" validationMessageCode="field.invalid.number" z="dAppn1IAZhLwiqvrWkuGfKzTxRg="/>
+    </form:find>
+</div>

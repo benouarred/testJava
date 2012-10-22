@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps:com.springsource.petclinic.domain.Visit" object="${visit}" z="GzBaj1RNfUn8sQAIMDkwaXV7O7w=">
+        <field:display field="description" id="s:com.springsource.petclinic.domain.Visit.description" object="${visit}" z="9jsOpIkAY1tiEjcpxO+koOoRxY4="/>
+        <field:display date="true" dateTimePattern="${visit_visitdate_date_format}" field="visitDate" id="s:com.springsource.petclinic.domain.Visit.visitDate" object="${visit}" z="nMOr6puJ8cRbVwpKU/8PnEId6Vo="/>
+        <field:display field="pet" id="s:com.springsource.petclinic.domain.Visit.pet" object="${visit}" z="vphdGdopE+3yn87GhxFP6dfqsMA="/>
+        <field:display field="vet" id="s:com.springsource.petclinic.domain.Visit.vet" object="${visit}" z="dGneFDjGUBZkCcXbv+qaO0VbHYg="/>
+    </page:show>
+</div>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByNameAndWeight" id="ff:com.springsource.petclinic.domain.Pet" path="/pets" z="k2SvFT9hgJOOEv5RROqMYvhTWrk=">
+        <field:input disableFormBinding="true" field="name" id="f:com.springsource.petclinic.domain.Pet.name" min="1" required="true" z="/9W58+jZEN4snzrZUsYxz7Bsv6o="/>
+        <field:input disableFormBinding="true" field="weight" id="f:com.springsource.petclinic.domain.Pet.weight" min="0" required="true" validationMessageCode="field.invalid.number" z="dAppn1IAZhLwiqvrWkuGfKzTxRg="/>
+    </form:find>
+</div>

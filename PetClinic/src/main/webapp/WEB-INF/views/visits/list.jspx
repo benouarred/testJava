@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl:com.springsource.petclinic.domain.Visit" items="${visits}" z="wSybttPKgAYPBplZ4KI/Hsjx6Yc=">
+        <table:table data="${visits}" id="l:com.springsource.petclinic.domain.Visit" path="/visits" z="L5qGFJsb6g/oG++TRnkE8Lb6uNY=">
+            <table:column id="c:com.springsource.petclinic.domain.Visit.description" property="description" z="vmnROJKbFNBpwtMDV4t/qYtJmsg="/>
+            <table:column id="c:com.springsource.petclinic.domain.Visit.visitDate" property="visitDate" z="LGj4vw3SSPdGb5vtTQVYXgKPkrU="/>
+            <table:column id="c:com.springsource.petclinic.domain.Visit.pet" property="pet" z="0pRdymzUdasml+9hD3mRQ3SjYYE="/>
+            <table:column id="c:com.springsource.petclinic.domain.Visit.vet" property="vet" z="EVykv/9dIb5lCkCScLBvlmdpGyg="/>
+        </table:table>
+    </page:list>
+</div>

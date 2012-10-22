@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu:com.springsource.petclinic.domain.Vet" modelAttribute="vet" path="/vets" z="inChquygaG5tFBEEopSqjtSId+Q=">
+        <field:input field="firstName" id="c:com.springsource.petclinic.domain.Vet.firstName" max="30" min="3" z="0nNN0zwVlx0pSuGZKzm3mfs0u40="/>
+        <field:input field="lastName" id="c:com.springsource.petclinic.domain.Vet.lastName" max="30" min="3" required="true" z="4Ooezv7XBPsKExRgJtHFwvIwlNo="/>
+        <field:textarea field="address" id="c:com.springsource.petclinic.domain.Vet.address" required="true" z="PzpMcCJD4EE0hlWo3Mof8Hr6wtU="/>
+        <field:input field="city" id="c:com.springsource.petclinic.domain.Vet.city" max="30" required="true" z="5kIekAsdiWJNj4i5VJa/Ke7YdMs="/>
+        <field:input field="telephone" id="c:com.springsource.petclinic.domain.Vet.telephone" required="true" z="sCo4Eg1Jma6kK/VLqwoR52U8Qw0="/>
+        <field:input field="homePage" id="c:com.springsource.petclinic.domain.Vet.homePage" max="30" z="qbu8eCVE122HqUno3VUDjUGbSvQ="/>
+        <field:input field="email" id="c:com.springsource.petclinic.domain.Vet.email" max="30" min="6" validationMessageCode="field.invalid.email" z="zT/9GXc52VMXdTO/7ZkxQqIEo34="/>
+        <field:datetime dateTimePattern="${vet_birthday_date_format}" field="birthDay" id="c:com.springsource.petclinic.domain.Vet.birthDay" required="true" z="XzhErJLThOt5BK4KSL42KGfFEwU="/>
+        <field:datetime dateTimePattern="${vet_employedsince_date_format}" field="employedSince" id="c:com.springsource.petclinic.domain.Vet.employedSince" past="true" required="true" z="+2ou3vFJ2mq670YiPi4UyMdZphw="/>
+        <field:select field="specialty" id="c:com.springsource.petclinic.domain.Vet.specialty" items="${specialtys}" path="specialtys" z="PG8iO5vj6jraTvEbfeNTkgj5lXA="/>
+    </form:update>
+</div>
