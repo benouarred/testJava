@@ -8,16 +8,17 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.test.annotation.ExpectedException;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sfeir.exam.petclinic.dao.OwnerDao;
 import com.sfeir.exam.petclinic.domain.Owner;
 
-/*
-Classe de test de l'objet propriétaire (Owner)
-*/
 @RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml")
 public class OwnerIntegrationTest extends TestCase {
 
     private OwnerDataOnDemand dod;
@@ -115,7 +116,7 @@ public class OwnerIntegrationTest extends TestCase {
         assertNotNull("Expected 'Owner' identifier to no longer be null", obj.getId());
     }
     
-    @Test
+    @Test(expected = EmptyResultDataAccessException.class)
     @Transactional
     public void testRemove() {
         assertNotNull("Data on demand for 'Owner' failed to initialize correctly", getDod().getRandomOwner());
@@ -125,6 +126,7 @@ public class OwnerIntegrationTest extends TestCase {
         assertNotNull("Find method for 'Owner' illegally returned null for id '" + id + "'", obj);
         ownerDao.remove(obj.getId());
         ownerDao.flush();
-        assertNull("Failed to remove 'Owner' with identifier '" + id + "'", ownerDao.findOwner(id));
+        ownerDao.findOwner(id);
+        //assertNull("Failed to remove 'Owner' with identifier '" + id + "'", ownerDao.findOwner(id));
     }
 }
