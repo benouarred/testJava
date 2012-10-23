@@ -22,25 +22,38 @@ public class Calculator {
         int rightValue = Integer.parseInt(inputs[2]);
 
         log.info("Opération: {}", operation);
-        switch (Operation.valueOf(operation)) {
-            case plus:
-                return leftValue + rightValue;
-            case moins:
-                return leftValue - rightValue;
-            case fois:
-                return leftValue * rightValue;
-            case divisé:
-                return leftValue / rightValue;
-        }
+        Integer result = Operation.valueOf(operation).compute(leftValue, rightValue);
 
-        return null;
+        return result;
     }
 
 
     enum Operation {
-        plus,
-        moins,
-        fois,
-        divisé;
+        plus {
+            @Override
+            public Integer compute(int leftValue, int rightValue) {
+                return leftValue + rightValue;
+            }
+        },
+        moins {
+            @Override
+            public Integer compute(int leftValue, int rightValue) {
+                return leftValue - rightValue;
+            }
+        },
+        fois {
+            @Override
+            public Integer compute(int leftValue, int rightValue) {
+                return leftValue * rightValue;
+            }
+        },
+        divisé {
+            @Override
+            public Integer compute(int leftValue, int rightValue) {
+                return leftValue / rightValue;
+            }
+        };
+
+        public abstract Integer compute(int leftValue, int rightValue);
     }
 }
