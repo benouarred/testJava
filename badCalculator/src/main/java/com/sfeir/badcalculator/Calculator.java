@@ -16,16 +16,16 @@ public class Calculator {
 
         //System.out.println("_" + operation + "_");
 
-        if(operation == "plus") {
+        if("plus".equals(operation)) {
             System.out.println("Plus");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) + Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        } else if (operation == "moins") {
+        } else if ("moins".equals(operation)) {
             System.out.println("Moins");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) - Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        } else if (operation == "fois") {
+        } else if ("fois".equals(operation)) {
             System.out.println("Fois");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) * Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        }  else if (operation == "divisé") {
+        }  else if ("divisé".equals(operation)) {
             System.out.println("Divis�");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) / Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
         }
