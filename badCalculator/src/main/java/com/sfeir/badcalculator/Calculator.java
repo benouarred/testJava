@@ -16,14 +16,10 @@ public class Calculator {
     Logger log = LoggerFactory.getLogger(Calculator.class);
 
     public Integer compute(String input) {
-        int opsi = input.indexOf(' ');
-        int opei = input.lastIndexOf(' ');
-        String operation = input.substring(opsi + 1, opei);
-
-        //System.out.println("_" + operation + "_");
-
-        int leftValue = Integer.parseInt(input.substring(0, input.indexOf(' ')));
-        int rightValue = Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
+        String[] inputs = input.split(" ");
+        int leftValue = Integer.parseInt(inputs[0]);
+        String operation = inputs[1];
+        int rightValue = Integer.parseInt(inputs[2]);
 
         log.info("Opération: {}", operation);
         if("plus".equals(operation)) {
