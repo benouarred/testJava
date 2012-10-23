@@ -25,7 +25,7 @@ public class Calculator {
         } else if ("fois".equals(operation)) {
             System.out.println("Fois");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) * Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        }  else if ("divisÃ©".equals(operation)) {
+        }  else if ("divisé".equals(operation)) {
             System.out.println("Divisé");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) / Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
         }
