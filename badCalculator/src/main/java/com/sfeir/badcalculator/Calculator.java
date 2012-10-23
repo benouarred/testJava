@@ -22,16 +22,25 @@ public class Calculator {
         int rightValue = Integer.parseInt(inputs[2]);
 
         log.info("Opération: {}", operation);
-        if("plus".equals(operation)) {
-            return leftValue + rightValue;
-        } else if ("moins".equals(operation)) {
-            return leftValue - rightValue;
-        } else if ("fois".equals(operation)) {
-            return leftValue * rightValue;
-        }  else if ("divisé".equals(operation)) {
-            return leftValue / rightValue;
+        switch (Operation.valueOf(operation)) {
+            case plus:
+                return leftValue + rightValue;
+            case moins:
+                return leftValue - rightValue;
+            case fois:
+                return leftValue * rightValue;
+            case divisé:
+                return leftValue / rightValue;
         }
 
         return null;
+    }
+
+
+    enum Operation {
+        plus,
+        moins,
+        fois,
+        divisé;
     }
 }
