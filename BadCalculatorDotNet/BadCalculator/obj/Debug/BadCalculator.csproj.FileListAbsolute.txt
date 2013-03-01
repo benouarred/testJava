@@ -1,6 +1,0 @@
-c:\users\sfeir\documents\visual studio 2012\Projects\BadCalculator\BadCalculator\bin\Debug\BadCalculator.exe.config
-c:\users\sfeir\documents\visual studio 2012\Projects\BadCalculator\BadCalculator\bin\Debug\BadCalculator.exe
-c:\users\sfeir\documents\visual studio 2012\Projects\BadCalculator\BadCalculator\bin\Debug\BadCalculator.pdb
-c:\users\sfeir\documents\visual studio 2012\Projects\BadCalculator\BadCalculator\obj\Debug\BadCalculator.csprojResolveAssemblyReference.cache
-c:\users\sfeir\documents\visual studio 2012\Projects\BadCalculator\BadCalculator\obj\Debug\BadCalculator.exe
-c:\users\sfeir\documents\visual studio 2012\Projects\BadCalculator\BadCalculator\obj\Debug\BadCalculator.pdb
