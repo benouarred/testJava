@@ -9,3 +9,6 @@ Ce repo contient des exercices pour évaluer les candidats derrière le clavier
 
 ## DOT NET
 - BadCalculator: Exercice trivial pour vérifier les compétences de base en .NET
+
+## Front End
+- TestsValidationJavaScript : Ensemble de tests unitaires à faire passer par le candidat.
