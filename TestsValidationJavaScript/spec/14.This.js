@@ -34,7 +34,6 @@ describe('About this : ', function(){
             }
         }
 
-        // calling a function with 'call' lets us assign 'this' explicitly
         var message = person.intro.call({ _ : "Frank"});
         expect(message).toBe("Hello, my name is Frank");
     });

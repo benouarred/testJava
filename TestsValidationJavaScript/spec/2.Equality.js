@@ -1,23 +1,43 @@
 describe('About equality : ', function(){
 
-    it('for number', function(){
-        expect(3 + _).toBe(7);
+    it('3 + 7 == 10', function(){
+        expect(3 + 7 == 10).toBe( _ );
     });
 
-    it('for string', function(){
-        expect("3" + _).toBe("37");
+    it('3 + 7 == "10"', function(){
+        expect(3 + 7 == "10").toBe( _ );
     });
 
-    it('on value', function(){
-        expect(8 _ '8').toBeTruthy();
+    it('3 + 7 === 10', function(){
+        expect(3 + 7 === 10).toBe( _ );
     });
 
-    it('on type and value', function(){
-        expect(8 _ '8').toBeFalsy();
+    it('3 + 7 === "10"', function(){
+        expect(3 + 7 === "10").toBe( _ );
     });
 
-    it('on string literals', function(){
-        expect("hello" _ 'hello').toBeTruthy();
+    it('"3" + "7" == "37"', function(){
+        expect("3" + "7" == "37").toBe( _ );
+    });
+
+    it('"3" + "7" == 37', function(){
+        expect("3" + "7" == 37).toBe( _ );
+    });
+
+    it('"3" + "7" === "37"', function(){
+        expect("3" + "7" === "37").toBe( _ );
+    });
+
+    it('"3" + "7" === 37', function(){
+        expect("3" + "7" === 37).toBe( _ );
+    });
+
+    it('"3" + 7 == "37"', function(){
+        expect("3" + 7 == "10").toBe( _ );
+    });
+
+    it('"3" + 7 === 37', function(){
+        expect("3" + 7 === 37).toBe( _ );
     });
 
 });

@@ -24,6 +24,18 @@ describe('About arrays : ', function(){
         expect(workingWeek).toEqual( _ );
     });
 
+    it('filtering', function() {
+        var collection = [1,2,3,4,5,6,7,8,9];
+        var odd = collection.filter( _ );
+        expect(odd).toEqual([1,3,5,7,9]);
+    });
+
+    it('reduce', function() {
+        var collection = [1,2,3,4];
+        var result = collection.reduce( _ );
+        expect(result).toBe(24);
+    });
+
     it('stack methods', function(){
         var stack = [];
         stack.push("first");

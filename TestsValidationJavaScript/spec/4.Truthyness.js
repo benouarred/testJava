@@ -7,7 +7,7 @@ describe('About truthyness : ', function(){
         } else {
             result = false;
         }
-        expect(result == _).toBeTruthy();
+        expect(result).toBe( _ );
     });
 
     it('of negative numbers', function(){
@@ -17,7 +17,7 @@ describe('About truthyness : ', function(){
         } else {
             result = false;
         }
-        expect(result == _).toBeTruthy();
+        expect(result).toBe( _ );
     });
 
     it('of zero', function(){
@@ -27,7 +27,7 @@ describe('About truthyness : ', function(){
         } else {
             result = false;
         }
-        expect(result == _).toBeTruthy();
+        expect(result).toBe( _ );
     });
 
     it('of null', function(){
@@ -37,7 +37,7 @@ describe('About truthyness : ', function(){
         } else {
             result = false;
         }
-        expect(result == _).toBeTruthy();
+        expect(result).toBe( _ );
     });
 
 });

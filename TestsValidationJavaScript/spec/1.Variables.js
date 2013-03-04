@@ -1,15 +1,19 @@
 describe('About Variables : ', function(){
 
+    nom = "Pierre";
+
     it('assign a value to a variable in global scope', function(){
-        nom = 'Thierry'
-        expect(window._).toBe('Thierry');
+        // _
+        expect(nom).toBe('Thierry');
+        expect(window.nom).toBe('Thierry');
     })
 
-    it('assign a value to a local variable', function(){
-        var age = 4;
+    age = 6;
 
-        expect(age).toBe(_);
-        expect(_.age).not.toBe(4);
+    it('assign a value to a local variable', function(){
+        // _
+        expect(age).toBe(4);
+        expect(window.age).toBe(6);
     })
 
 });

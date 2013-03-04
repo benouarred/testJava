@@ -11,7 +11,6 @@ describe('About operators : ', function(){
     it('assignment addition', function(){
         var result = 0;
         for (var i = 0; i <=5; i++) {
-            //the code below is just like saying result = result + i; but is more concise
             result += i;
         }
         expect(result).toBe( _ );
@@ -36,7 +35,6 @@ describe('About operators : ', function(){
     it('modulus', function(){
         var result = 11;
         var x = 5;
-        //again this is exactly the same as result = result % x
         result %= x;
         expect(result).toBe( _ );
     });

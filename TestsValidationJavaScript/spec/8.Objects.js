@@ -1,11 +1,11 @@
 describe('About objects : ', function(){
 
-    it('object type', function(){
+    it('type', function(){
         var result = {};
         expect(typeof(result)).toBe( _ );
     });
 
-    it('object literal notation', function(){
+    it('literal notation', function(){
         var person = {_};
         expect(person.name).toBe('Jean Paul');
         expect(person.age).toBe(51);

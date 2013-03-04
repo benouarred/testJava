@@ -21,7 +21,7 @@ describe('About control structures : ', function(){
         expect(fruit).toBe( _ );
     });
 
-    it('switch', function(){
+    it('switch 1', function(){
         var result = 0;
         switch (2) {
             case 1:
@@ -34,7 +34,7 @@ describe('About control structures : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('switch default case', function(){
+    it('switch 2', function(){
         var result = "Pippin";
         switch ("m") {
             case "f":
@@ -49,6 +49,22 @@ describe('About control structures : ', function(){
         }
         expect(result).toBe( _ );
     });
+
+    it('switch 3', function(){
+        var result = "Pippin";
+        switch ("s") {
+            case "f":
+                result = "Frodo";
+                break;
+            case "s":
+                result = "Samwise";
+            default:
+                result = "Merry";
+                break;
+        }
+        expect(result).toBe( _ );
+    });
+
 
     it('null coalescing', function(){
         var fruit = null || "banana";

@@ -12,7 +12,7 @@ describe('About strings : ', function(){
     it('concatenation', function(){
         var fruit = "apple";
         var dish = "pie";
-        expect(fruit + " " + dish).toBe( _ );
+        expect( _ ).toBe( "apple pie." );
     });
 
     it('character Type', function(){
