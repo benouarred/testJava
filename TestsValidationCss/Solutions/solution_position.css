@@ -1,0 +1,23 @@
+/* Une des solutions possibles */
+#position .red {
+	...
+	position: relative;
+	left: 25;
+}
+#position .green {
+	...
+	position: relative;
+	top: -50;
+	left: 75;
+}
+#position .black {
+	...
+	position: relative;
+	top: -200;
+}
+#position .yellow {
+	...
+	position: relative;
+	top: -225;
+	left: 225;
+}

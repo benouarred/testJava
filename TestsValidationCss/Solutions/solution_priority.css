@@ -1,0 +1,23 @@
+/* Exo 1 */
+.black {
+	color: black;
+}
+/* + ajouter la class à la balise <p> */
+
+
+/* Exo 2 */
+#black {
+	color: black;
+}
+/* + ajouter l'id à la balise <p> */
+
+
+/* Exo 3 */
+/* ajouter un  attribut style="color:black;" à la balise <p> */
+
+
+/* Exo 4 */
+.imp {
+	color: black !important;
+}
+/* + ajouter la class à la balise <p> */
