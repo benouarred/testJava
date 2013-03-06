@@ -1,0 +1,27 @@
+section {
+	float: left;
+	width: 100%;
+	padding-top: 10px;
+}
+
+
+/* Exo 1 */
+p {
+	color: orange;
+}
+
+
+/* Exo 2 */
+.green {
+	color: green;
+}
+
+
+/* Exo 3 */
+#red {
+	color: red;
+}
+
+
+/* Exo 4 */
+
