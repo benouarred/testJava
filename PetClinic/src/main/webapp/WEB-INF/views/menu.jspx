@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+	<jsp:output omit-xml-declaration="yes"/>
+
+<menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c:visits" name="Visits" z="GzxYVnfRsdHIAnhcRUDWmuWW6wk=">
+            <menu:item id="i:visits_visit" messageCode="global.menu.new" name="Visit" url="/visits?form" z="W7SM6sYQ+0h7LCGcmLFutcPFnok="/>
+        <menu:item id="i:visits_visits" messageCode="global.menu.list" name="Visits" url="/visits?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="dFmJFmpqNILMyYNhIUUzJSJ+EmE="/>
+        <menu:item id="fi:visits_descriptionandvisitdate" messageCode="global.menu.find" name="DescriptionAndVisitDate" url="/visits?find=ByDescriptionAndVisitDate&amp;form" z="N+fTnbY5H8fGPxpcdw9jys7X+nc="/>
+        <menu:item id="fi:visits_visitdatebetween" messageCode="global.menu.find" name="VisitDateBetween" url="/visits?find=ByVisitDateBetween&amp;form" z="IDg3E/YJjzsqaA5nEW3dvrKv3Fs="/>
+        <menu:item id="fi:visits_descriptionlike" messageCode="global.menu.find" name="DescriptionLike" url="/visits?find=ByDescriptionLike&amp;form" z="paK5ToTFCh+p+f7DaxYEo4jD5no="/>
+        </menu:category>
+    <menu:category id="c:vets" name="Vets" z="2Yq3s3t+uPtRaFOwA7z8Om/KI0k=">
+            <menu:item id="i:vets_vet" messageCode="global.menu.new" name="Vet" url="/vets?form" z="Kgp9sEuGZpkzTTcQqtFsFKS0juE="/>
+        <menu:item id="i:vets_vets" messageCode="global.menu.list" name="Vets" url="/vets?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="QHIEdegbrpx6QsDIyCM88kYjhyM="/>
+        </menu:category>
+    <menu:category id="c:pets" name="Pets" z="f3ODIEEkK5qTHJcyxKFKkziQ0OA=">
+            <menu:item id="i:pets_pet" messageCode="global.menu.new" name="Pet" url="/pets?form" z="HRSau6tyCB06iT7ySm6t+r5mB2Y="/>
+        <menu:item id="i:pets_pets" messageCode="global.menu.list" name="Pets" url="/pets?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="fVVyTUFUq7hWT35kHlKqHWUT0Kc="/>
+        <menu:item id="fi:pets_nameandweight" messageCode="global.menu.find" name="NameAndWeight" url="/pets?find=ByNameAndWeight&amp;form" z="OETm4ivykfhsKIo1N2crwvodpgA="/>
+        <menu:item id="fi:pets_owner" messageCode="global.menu.find" name="Owner" url="/pets?find=ByOwner&amp;form" z="93yrtyIROrKdV8wVZlMZwhtiqA4="/>
+        <menu:item id="fi:pets_sendremindersandweightlessthan" messageCode="global.menu.find" name="SendRemindersAndWeightLessThan" url="/pets?find=BySendRemindersAndWeightLessThan&amp;form" z="WRJSSTIzF2N8JRH5vh8gtWSMutc="/>
+        <menu:item id="fi:pets_typeandnamelike" messageCode="global.menu.find" name="TypeAndNameLike" url="/pets?find=ByTypeAndNameLike&amp;form" z="feI7DXLO+evdZJDuqlAM2csXApE="/>
+        </menu:category>
+    <menu:category id="c:owners" name="Owners" z="UEeCrcKLl+jsQ5BYxX7N4r/CpvE=">
+            <menu:item id="i:owners_owner" messageCode="global.menu.new" name="Owner" url="/owners?form" z="3EpF+2ivVIOfyxhloc9vo1JPRZk="/>
+        <menu:item id="i:owners_owners" messageCode="global.menu.list" name="Owners" url="/owners?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="DKWKSBAwYeNPk6ZwxmmOv7a2FJM="/>
+        </menu:category>
+    <menu:category id="c:seleniumtests" name="SeleniumTests" z="fYq+5i89eCPdDTpDbv71JsIk12c=">
+            <menu:item id="si:seleniumtests_test" messageCode="selenium.menu.test.suite" name="Test" url="/static/selenium/test-suite.xhtml" z="Xwolki4opFDZb7uqaxwzlqLZt4A="/>
+        </menu:category>
+    </menu:menu>
+</div>

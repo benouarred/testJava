@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps:com.springsource.petclinic.domain.Vet" object="${vet}" z="cLIgwa75ZMBs4nCf7q/x1Cp7gp0=">
+        <field:display field="firstName" id="s:com.springsource.petclinic.domain.Vet.firstName" object="${vet}" z="j4trgmTxsEg0DiDhvvHJcHlanRY="/>
+        <field:display field="lastName" id="s:com.springsource.petclinic.domain.Vet.lastName" object="${vet}" z="i2hj1oo+b4iR+W8X+xY1PE8/sRU="/>
+        <field:display field="address" id="s:com.springsource.petclinic.domain.Vet.address" object="${vet}" z="FUswgR3fmIpdAZoa0xDUGtMz/U4="/>
+        <field:display field="city" id="s:com.springsource.petclinic.domain.Vet.city" object="${vet}" z="p/ibw70bxv3lD0Gn2F/YjYr31r0="/>
+        <field:display field="telephone" id="s:com.springsource.petclinic.domain.Vet.telephone" object="${vet}" z="yjRA57bnod5bXB5n5/e2XB3UfCk="/>
+        <field:display field="homePage" id="s:com.springsource.petclinic.domain.Vet.homePage" object="${vet}" z="V81FT1X3t6M4IL7VwP3oBSvOTgg="/>
+        <field:display field="email" id="s:com.springsource.petclinic.domain.Vet.email" object="${vet}" z="TXrAQ48aT5EV5Kyw1gVHPzUdlRY="/>
+        <field:display date="true" dateTimePattern="${vet_birthday_date_format}" field="birthDay" id="s:com.springsource.petclinic.domain.Vet.birthDay" object="${vet}" z="aisc3j1Xx5vJVQt2QYhRkPjRnGY="/>
+        <field:display calendar="true" dateTimePattern="${vet_employedsince_date_format}" field="employedSince" id="s:com.springsource.petclinic.domain.Vet.employedSince" object="${vet}" z="FbCgu0ggUR0DXCWGrsOd1+tAOaA="/>
+        <field:display field="specialty" id="s:com.springsource.petclinic.domain.Vet.specialty" object="${vet}" z="jcJEirTvzjMxOs0J0/6eSjnApqE="/>
+    </page:show>
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu:com.springsource.petclinic.domain.Visit" modelAttribute="visit" path="/visits" z="hsdMHhqbnyCxg8fbvNlIeEmRXqg=">
+        <field:textarea field="description" id="c:com.springsource.petclinic.domain.Visit.description" z="m1VIcCQ3RMCRKUknvRzDG3vrWpQ="/>
+        <field:datetime dateTimePattern="${visit_visitdate_date_format}" field="visitDate" id="c:com.springsource.petclinic.domain.Visit.visitDate" past="true" required="true" z="rE1lzk31E1gLK1zpt7ka0MRrmqs="/>
+        <field:select field="pet" id="c:com.springsource.petclinic.domain.Visit.pet" itemValue="id" items="${pets}" path="/pets" required="true" z="L1n14jxnqA3p/muweSprLNYkGTE="/>
+        <field:select field="vet" id="c:com.springsource.petclinic.domain.Visit.vet" itemValue="id" items="${vets}" path="/vets" z="B2Epu2LfU5o63TPEpt9V947Qboo="/>
+    </form:update>
+</div>

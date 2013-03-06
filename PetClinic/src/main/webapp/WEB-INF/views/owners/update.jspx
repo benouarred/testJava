@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu:com.springsource.petclinic.domain.Owner" modelAttribute="owner" path="/owners" z="13bRJFNfaA6Z+NWOp7Uc0us52Iw=">
+        <field:input field="firstName" id="c:com.springsource.petclinic.domain.Owner.firstName" max="30" min="3" z="fQBYlHBsGUVOq/6/i6KEBZQhjcI="/>
+        <field:input field="lastName" id="c:com.springsource.petclinic.domain.Owner.lastName" max="30" min="3" required="true" z="pIN8R/Wy/Qep6t/YzRCUGZWd4x0="/>
+        <field:textarea field="address" id="c:com.springsource.petclinic.domain.Owner.address" required="true" z="T/jig95s7NFCZ3B1J5wD0wbKOj0="/>
+        <field:input field="city" id="c:com.springsource.petclinic.domain.Owner.city" max="30" required="true" z="8Bxwjxt1dLyzlFBWqN+81BUjZ0U="/>
+        <field:input field="telephone" id="c:com.springsource.petclinic.domain.Owner.telephone" required="true" z="slhhBczWs/uj4XFVgdmgVgXhLKo="/>
+        <field:input field="homePage" id="c:com.springsource.petclinic.domain.Owner.homePage" max="30" z="gGQMPDswB0dWOVDIeeZdcqyeNxk="/>
+        <field:input field="email" id="c:com.springsource.petclinic.domain.Owner.email" max="30" min="6" validationMessageCode="field.invalid.email" z="WGJElPDuRXTieiGywANao93IZDs="/>
+        <field:datetime dateTimePattern="${owner_birthday_date_format}" field="birthDay" id="c:com.springsource.petclinic.domain.Owner.birthDay" required="true" z="jsjvkV/wA2MJ7+u+3poWgx8vAsI="/>
+        <field:simple field="pets" id="c:com.springsource.petclinic.domain.Owner.pets" messageCode="entity.reference.not.managed" messageCodeAttribute="Owner" z="zFRjW61KZzVtIjVFYEVmy9Cc28s="/>
+    </form:update>
+</div>
