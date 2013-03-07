@@ -4,10 +4,10 @@ describe('About this : ', function(){
         var person = {
             name: 'bob',
             intro: function () {
-                return "Hello, my name is " + this.name;
+                return "Hello, my name is " + _;
             }
         }
-        expect(person.intro()).toBe( _ );
+        expect(person.intro()).toBe("Hello, my name is bob");
     });
 
 
@@ -21,8 +21,9 @@ describe('About this : ', function(){
 
         var alias = person.intro;
 
-        window._ = 'Peter';
-        expect(alias()).toBe("Hello, my name is Peter");
+        window.name = 'Peter';
+
+        expect( _ ).toBe("Hello, my name is Peter");
     });
 
 
@@ -34,7 +35,7 @@ describe('About this : ', function(){
             }
         }
 
-        var message = person.intro.call({ _ : "Frank"});
+        var message = person.intro.call( _ );
         expect(message).toBe("Hello, my name is Frank");
     });
 
