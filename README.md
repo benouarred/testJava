@@ -12,4 +12,5 @@ Ce repo contient des exercices pour évaluer les candidats derrière le clavier
 
 ## Front End
 - TestsValidationJavaScript : Ensemble de tests unitaires à faire passer par le candidat.
-- TestsValidationCss : Enesemble d'exercices CSS visant à valider des concepts de base
+- TestsValidationCss : Ensemble d'exercices CSS visant à valider des concepts de base
+- TestsValidationHTML5 : Exercice HTML5 validant l'utilisation des balises HTML5 à la place des <div>
