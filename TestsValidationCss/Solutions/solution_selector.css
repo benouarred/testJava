@@ -1,11 +1,47 @@
 /* Solution : colorier le 6ème élément */
-#exo1 li:nth-child(6) { background-color: green; }
+#exo1 li:nth-child(6) {
+    background-color: green;
+}
 
 /* Solution : colorier les pairs */
-#exo2 li:nth-child(odd) { background-color: green; }
+#exo2 li:nth-child(odd) {
+    background-color: green;
+}
 
 /* Solution : colorier l'avant dernier element */
-#exo3 li:nth-last-child(2) { background-color: green; }
+#exo3 li:nth-last-child(2) {
+    background-color: green;
+}
 
 /* Solution : colorier tous les 3 éléments */
-#exo4 li:nth-child(3n + 1) { background-color: green; }
+#exo4 li:nth-child(3n + 1) {
+    background-color: green;
+}
+
+/* Exo5 : Colorier les pastilles n°1 qui sont seules */
+#exo5 .dot:only-child{
+    background-color: yellowgreen;
+}
+
+/* Exo6 : Colorier le numéro dont le lien href est /page4 */
+#exo6 .dot > a[href="/page4"]{
+    color: yellowgreen;
+}
+
+/* Exo7 : Colorier toutes les pastilles sauf les numéros 1 */
+#exo7 .dot + .dot{
+    background-color: yellowgreen;
+}
+
+/* Exo8 : Colorier la pastille 1 en jaune, la 2 et 3 en rouge et les 4 5 et 6 en vert */
+#exo8 .dot {
+    background-color: red;
+}
+
+#exo8 > ul .dot {
+    background-color: yellow;
+}
+
+#exo8 section + section .dot {
+    background-color: green;
+}
