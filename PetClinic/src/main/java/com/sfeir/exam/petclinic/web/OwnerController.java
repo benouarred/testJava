@@ -58,7 +58,7 @@ public class OwnerController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String show(@PathVariable("id") Long id, ModelMap modelMap) {
-		if (id == null)
+		if (id != null)
 			throw new IllegalArgumentException("An Identifier is required");
 		addDateTimeFormatPatterns(modelMap);
 		modelMap.addAttribute("owner", ownerDao.findOwner(id));

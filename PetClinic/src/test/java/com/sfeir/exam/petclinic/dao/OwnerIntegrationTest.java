@@ -1,22 +1,24 @@
 package com.sfeir.exam.petclinic.dao;
 
-import com.sfeir.exam.petclinic.domain.Owner;
+import java.util.List;
+
+import junit.framework.TestCase;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.test.annotation.ExpectedException;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import static org.junit.Assert.*;
 
-import java.util.List;
+import com.sfeir.exam.petclinic.dao.OwnerDao;
+import com.sfeir.exam.petclinic.domain.Owner;
 
-
-/*
-Classe de test de l'objet propriétaire (Owner)
-*/
 @RunWith(SpringJUnit4ClassRunner.class)
-public class OwnerIntegrationTest {
+public class OwnerIntegrationTest extends TestCase {
 
     private OwnerDataOnDemand dod;
 
@@ -67,7 +69,7 @@ public class OwnerIntegrationTest {
         assertNotNull("Data on demand for 'Owner' failed to initialize correctly", getDod().getRandomOwner());
         long count = ownerDao.countOwners();
         if (count > 20) count = 20;
-        List<com.sfeir.exam.petclinic.domain.Owner> result = ownerDao.findOwnerEntries(0, (int)count);
+        List<Owner> result = ownerDao.findOwnerEntries(0, (int)count);
         assertNotNull("Find entries method for 'Owner' illegally returned null", result);
         assertEquals("Find entries method for 'Owner' returned an incorrect number of entries", count, result.size());
     }
@@ -113,7 +115,7 @@ public class OwnerIntegrationTest {
         assertNotNull("Expected 'Owner' identifier to no longer be null", obj.getId());
     }
     
-    @Test
+    @Test(expected = EmptyResultDataAccessException.class)
     @Transactional
     public void testRemove() {
         assertNotNull("Data on demand for 'Owner' failed to initialize correctly", getDod().getRandomOwner());
@@ -123,6 +125,7 @@ public class OwnerIntegrationTest {
         assertNotNull("Find method for 'Owner' illegally returned null for id '" + id + "'", obj);
         ownerDao.remove(obj.getId());
         ownerDao.flush();
-        assertNull("Failed to remove 'Owner' with identifier '" + id + "'", ownerDao.findOwner(id));
+        ownerDao.findOwner(id);
+        //assertNull("Failed to remove 'Owner' with identifier '" + id + "'", ownerDao.findOwner(id));
     }
 }

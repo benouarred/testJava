@@ -24,7 +24,7 @@ public class VetDataOnDemand {
 		}
 
 		public Vet getNewTransientVet(int index) {
-	        com.sfeir.exam.petclinic.domain.Vet obj = new com.sfeir.exam.petclinic.domain.Vet();
+	        Vet obj = new Vet();
 	        obj.setAddress("address_" + index);
 	        obj.setBirthDay(new java.util.Date());
 	        obj.setCity("city_" + index);
