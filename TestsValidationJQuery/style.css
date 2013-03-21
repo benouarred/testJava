@@ -1,0 +1,28 @@
+.midScreen {
+	width: 45%;
+	min-height: 400px;
+	float: left;
+	border: dashed 1px;
+	margin: 5px;
+}
+.title {
+	text-align: center;
+}
+.square {
+	width: 20px;
+	height: 20px;
+	border: solid 1px;
+	margin-bottom: 20px;
+}
+.orange {
+	background-color: orange;
+}
+.red {
+	background-color: red;
+}
+.green {
+	background-color: green;
+}
+.blue {
+	background-color: blue;
+}
