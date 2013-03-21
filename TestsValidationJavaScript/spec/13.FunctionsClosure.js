@@ -10,25 +10,23 @@ describe('About Functions and Closure : ', function(){
     });
 
     it("assigning functions to variables", function() {
-        var action = function(input) {
-            return input * 3;
-        };
-        expect(action(4)).toBe( _ );
+        var action = _;
+        expect(action(4)).toBe(12);
     });
 
 
     it("self invoking functions", function() {
-        var publicValue = "hello";
+        var value = "orange";
 
-        (function(pv) {
-            var secretValue = "password";
-            expect(pv).toBe( _);
-            expect(typeof(secretValue)).toBe( _ );
-            expect(typeof(publicValue)).toBe( _ );
-        })(publicValue);
+        (function( _ ) {
+            var anotherValue = "blue";
+            expect(val).toBe( "orange" );
+            expect(typeof(value)).toBe( _ );
+            expect(typeof(anotherValue)).toBe( _ );
+        })( _ );
 
-        expect(typeof(secretValue)).toBe( _ );
-        expect(typeof(publicValue)).toBe( _ );
+        expect(typeof(anotherValue)).toBe( _ );
+        expect(typeof(value)).toBe( _ );
     });
 
 

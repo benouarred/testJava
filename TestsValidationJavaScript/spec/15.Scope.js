@@ -8,16 +8,16 @@ describe('About scopes : ', function(){
 
 
     it("variables declared inside of a function", function() {
-        var outerVariable = "outer";
+        var fruit = "banana";
 
         (function() {
-            var innerVariable = "inner";
-            expect(outerVariable).toBe( _ );
-            expect(innerVariable).toBe( _ );
+            var anotherFruit = "orange";
+            expect(fruit).toBe( _ );
+            expect(anotherFruit).toBe( _ );
         })();
 
-        expect(outerVariable).toBe( _ );
-        expect(typeof(innerVariable)).toBe( _ );
+        expect(fruit).toBe( _ );
+        expect(typeof(anotherFruit)).toBe( _ );
     });
 
 

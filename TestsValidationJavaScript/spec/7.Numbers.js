@@ -5,7 +5,7 @@ describe('About numbers : ', function(){
         var typeOfFloats = typeof(3.14159);
         expect(typeOfIntegers === typeOfFloats).toBe( _ );
         expect(typeOfIntegers).toBe( _ );
-        expect(1.0 === 1).toBe( _ );
+        expect(1.0 === _).toBe(true);
     });
 
     it('NaN', function(){

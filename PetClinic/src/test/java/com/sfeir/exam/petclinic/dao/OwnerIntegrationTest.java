@@ -1,24 +1,22 @@
 package com.sfeir.exam.petclinic.dao;
 
-import java.util.List;
-
-import junit.framework.TestCase;
-
+import com.sfeir.exam.petclinic.domain.Owner;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import static org.junit.Assert.*;
 
-import com.sfeir.exam.petclinic.dao.OwnerDao;
-import com.sfeir.exam.petclinic.domain.Owner;
+import java.util.List;
+
 
 /*
 Classe de test de l'objet propriétaire (Owner)
 */
 @RunWith(SpringJUnit4ClassRunner.class)
-public class OwnerIntegrationTest extends TestCase {
+public class OwnerIntegrationTest {
 
     private OwnerDataOnDemand dod;
 
