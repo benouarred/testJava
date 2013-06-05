@@ -75,14 +75,20 @@ public class PetDao  {
     }
 
     public Query findPetsByNameAndWeight(String name, Float weight) {
-    	throw new UnsupportedOperationException("To be implemented");
+    	throw new UnsupportedOperationException("to be implemented");
     }
     
     public Query findPetsBySendRemindersAndWeightLessThan(boolean sendReminders, Float weight) {
-    	throw new UnsupportedOperationException("To be implemented");
+    	Query q = getEntityManager().createQuery("SELECT Pet FROM Pet AS pet WHERE pet.sendReminders = :sendReminders AND pet.weight < :weight");
+    	q.setParameter("sendReminders", sendReminders);
+    	q.setParameter("weight", weight);
+    	return q;
     }
 
     public Query findPetsByTypeAndNameLike(PetType type, String name) {
-    	throw new UnsupportedOperationException("To be implemented");
+    	Query q = getEntityManager().createQuery("SELECT Pet FROM Pet AS pet WHERE pet.type = :type AND pet.name LIKE :name");
+    	q.setParameter("name", "%" + name + "%");
+    	q.setParameter("type", type);
+    	return q;
     }
 }

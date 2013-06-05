@@ -1,6 +1,9 @@
 package com.sfeir.exam.petclinic.dao;
 
-import com.sfeir.exam.petclinic.domain.Pet;
+import java.util.List;
+
+import junit.framework.TestCase;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +11,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
-import static org.junit.Assert.*;
+import com.sfeir.exam.petclinic.dao.PetDao;
+import com.sfeir.exam.petclinic.domain.Pet;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml")
-public class PetIntegrationTest{
+public class PetIntegrationTest extends TestCase{
 
 	  private PetDataOnDemand dod;
 	    
@@ -115,7 +117,7 @@ public class PetIntegrationTest{
 	    @Transactional
 	    public void testRemove() {
 	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
-	        java.lang.Long id = getDod().getRandomPet().getId();
+	        Long id = getDod().getRandomPet().getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
 	        Pet obj = petDao.findPet(id);
 	        assertNotNull("Find method for 'Pet' illegally returned null for id '" + id + "'", obj);
@@ -129,7 +131,7 @@ public class PetIntegrationTest{
 	    public void testFindPetsByNameAndWeight() {
 	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Pet obj = getDod().getRandomPet();
-	        java.lang.Long id = obj.getId();
+	        Long id = obj.getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
 	        Pet obj2 = (Pet) petDao.findPetsByNameAndWeight(obj.getName(), obj.getWeight()).getSingleResult();
 	        assertNotNull("Find method for 'Pet' illegally returned null for id '" + obj2.getId() + "'", obj2);
@@ -141,7 +143,7 @@ public class PetIntegrationTest{
 	    public void testFindPetsBySendRemindersAndWeightLessThan() {
 	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Pet obj = getDod().getRandomPet();
-	        java.lang.Long id = obj.getId();
+	        Long id = obj.getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
 	        @SuppressWarnings("unchecked")
 			List<Pet> petList = (List<Pet>) petDao.findPetsBySendRemindersAndWeightLessThan(obj.isSendReminders(), obj.getWeight() + 1).getResultList();
@@ -153,7 +155,7 @@ public class PetIntegrationTest{
 	    public void testFindPetsByTypeAndNameLike() {
 	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Pet obj = getDod().getRandomPet();
-	        java.lang.Long id = obj.getId();
+	        Long id = obj.getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
 	        @SuppressWarnings("unchecked")
 			List<Pet> petList = (List<Pet>) petDao.findPetsByTypeAndNameLike(obj.getType(), obj.getName().substring(0, obj.getName().length() - 1)).getResultList();

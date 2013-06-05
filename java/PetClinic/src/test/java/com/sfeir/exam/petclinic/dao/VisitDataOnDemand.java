@@ -31,7 +31,7 @@ public class VisitDataOnDemand {
 	    
 	    public Visit getNewTransientVisit(int index) {
 	        Visit obj = new Visit();
-	        obj.setDescription(null);
+	        obj.setDescription("description " + index);
 	        obj.setPet(petDataOnDemand.getRandomPet());
 	        obj.setVet(null);
 	        obj.setVisitDate(new Date(new Date().getTime() - 10000000L));
