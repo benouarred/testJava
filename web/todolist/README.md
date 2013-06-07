@@ -37,8 +37,9 @@ obligatoire car le dossier node_modules accompagne le projet
 * ```POST    /todos``` Créer un todo
 * ```PUT     /todos/:id``` Mise à jour d'un todo
 * ```DELETE  /todos/:id``` Suppression d'un todo
+* 
 
 ## Contact
 
-guedes.b@sfeir.com
-lau.t@sfeir.com
+* guedes.b@sfeir.com
+* lau.t@sfeir.com
