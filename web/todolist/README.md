@@ -2,7 +2,7 @@
 
 ## Objectifs
 
-Tester quels outils, frameworks et librairies le candidat met en oeuvre pour développer une application Web moderne
+Tester quels outils, frameworks et librairies (JS ou CSS) le candidat met en oeuvre pour développer une application Web moderne
 ainsi que leurs niveaux de maîtrise.
 
 Pour cela, le candidat doit développer la partie Front End d'application web de type TodoList.
@@ -37,7 +37,6 @@ obligatoire car le dossier node_modules accompagne le projet
 * ```POST    /todos``` Créer un todo
 * ```PUT     /todos/:id``` Mise à jour d'un todo
 * ```DELETE  /todos/:id``` Suppression d'un todo
-* 
 
 ## Contact
 
