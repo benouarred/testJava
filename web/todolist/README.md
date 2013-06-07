@@ -32,11 +32,11 @@ obligatoire car le dossier node_modules accompagne le projet
 
 ## API Server
 
-* Récupérer la liste des todos    ```GET     /todos```
-* Récupérer un to do              ```GET     /todos/:id ```
-* Créer un to do                  ```POST    /todos```
-* Mise à jour d'un to do          ```PUT     /todos/:id```
-* Suppression d'un to do          ```DELETE  /todos/:id```
+* ```GET     /todos``` Récupérer la liste des todos
+* ```GET     /todos/:id ```  Récupérer un todo
+* ```POST    /todos``` Créer un todo
+* ```PUT     /todos/:id``` Mise à jour d'un todo
+* ```DELETE  /todos/:id``` Suppression d'un todo
 
 ## Contact
 
