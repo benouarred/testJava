@@ -10,7 +10,8 @@ Ce projet a pour objectif de tester les compétences des candidats
 
 ## Démarrage
 
-node todolist
+* Dans un terminal, placez vous à la racine du projet
+* Exécutez la commande node todolist
 
 ## Notes
 
@@ -28,3 +29,4 @@ DELETE  /todos/:id      Suppression d'un to do
 ## Contact
 
 guedes.b@sfeir.com
+lau.t@sfeir.com
