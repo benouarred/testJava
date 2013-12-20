@@ -20,6 +20,4 @@ describe('About scopes : ', function(){
         expect(typeof(anotherFruit)).toBe( _ );
     });
 
-
-
 });

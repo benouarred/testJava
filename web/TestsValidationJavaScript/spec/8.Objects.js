@@ -6,7 +6,9 @@ describe('About objects : ', function(){
     });
 
     it('literal notation', function(){
-        var person = {_};
+        var person = {
+            // _
+        };
         expect(person.name).toBe('Jean Paul');
         expect(person.age).toBe(51);
     });
