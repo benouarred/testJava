@@ -1,23 +1,5 @@
 describe('About Reflection : ', function(){
 
-
-    function A() {
-        this.aprop = "A";
-    };
-
-    function B() {
-        this.bprop = "B";
-    };
-
-    B.prototype = new A();
-
-    it('typeof', function(){
-        expect(typeof({})).toBe( _ );
-        expect(typeof('apple')).toBe( _ );
-        expect(typeof(-5)).toBe( _ );
-        expect(typeof(false)).toBe( _ );
-    });
-
     it("property enumeration", function() {
         var keys = [];
         var values = [];
@@ -29,6 +11,17 @@ describe('About Reflection : ', function(){
         expect(keys).toEqual(['name','age','unemployed']);
         expect(values).toEqual(['Thierry LAU', 30 , true]);
     });
+
+
+    function A() {
+        this.aprop = "A";
+    }
+
+    function B() {
+        this.bprop = "B";
+    }
+
+    B.prototype = new A();
 
     it("hasOwnProperty", function() {
         var b = new B();

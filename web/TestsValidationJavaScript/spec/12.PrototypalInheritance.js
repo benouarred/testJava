@@ -2,13 +2,13 @@ describe('About prototype inheritance : ', function(){
 
     var Mammal = function(name) {
         this.name = name;
-    }
+    };
 
     Mammal.prototype = {
         sayHi: function() {
             return "Hello, my name is " + this.name;
         }
-    }
+    };
 
     it("defining a 'class'", function() {
         var eric  = new Mammal("Eric");
@@ -17,7 +17,7 @@ describe('About prototype inheritance : ', function(){
 
     Mammal.prototype.favouriteSaying = function() {
         return this.name + "'s favourite saying is " + this.sayHi();
-    }
+    };
 
     it("more functions", function() {
         var bobby = new Mammal("Bobby");

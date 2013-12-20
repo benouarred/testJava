@@ -4,7 +4,7 @@ describe('About Functions and Closure : ', function(){
         var result = "a";
         function changeResult() {
             result = "b";
-        };
+        }
         changeResult();
         expect(result).toBe( _ );
     });

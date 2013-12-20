@@ -8,14 +8,6 @@ describe('About control structures : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('for', function(){
-        var counter = 10;
-        for (var i = 1; i <= 3; i++) {
-            counter = counter + i;
-        }
-        expect(counter).toBe( _ );
-    });
-
     it('ternary operator', function(){
         var fruit = true ? "orange" : "banana";
         expect(fruit).toBe( _ );

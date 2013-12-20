@@ -6,7 +6,7 @@ describe('About this : ', function(){
             intro: function () {
                 return "Hello, my name is " + _;
             }
-        }
+        };
         expect(person.intro()).toBe("Hello, my name is bob");
     });
 
@@ -17,7 +17,7 @@ describe('About this : ', function(){
             intro: function () {
                 return "Hello, my name is " + this.name;
             }
-        }
+        };
 
         var alias = person.intro;
 
@@ -33,7 +33,7 @@ describe('About this : ', function(){
             intro: function () {
                 return "Hello, my name is " + this.name;
             }
-        }
+        };
 
         var message = person.intro.call( _ );
         expect(message).toBe("Hello, my name is Frank");
