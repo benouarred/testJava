@@ -39,5 +39,15 @@ describe('About truthyness : ', function(){
         }
         expect(result).toBe( _ );
     });
+	
+	    it('of undefined', function(){
+        var result;
+        if(undefined){
+           result = true;
+        } else {
+            result = false;
+        }
+        expect(result).toBe( _ );
+    });
 
 });
