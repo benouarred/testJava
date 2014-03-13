@@ -30,11 +30,11 @@ app.configure('development', function(){
 
 app.get('/views/:name', routes.views);
 
-app.get('/todos', todo.findAll);
-app.get('/todos/:id', todo.findById);
-app.post('/todos', todo.addTodo);
-app.put('/todos/:id', todo.updateTodo);
-app.delete('/todos/:id', todo.deleteTodo);
+app.get('/api/todos', todo.findAll);
+app.get('/api/todos/:id', todo.findById);
+app.post('/api/todos', todo.addTodo);
+app.put('/api/todos/:id', todo.updateTodo);
+app.delete('/api/todos/:id', todo.deleteTodo);
 
 
 http.createServer(app).listen(app.get('port'), function(){
