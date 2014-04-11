@@ -1,30 +1,30 @@
-describe('About equality : ', function(){
+describe('Equality', function(){
 
-    it('3 + 7 == 10', function(){
+    it('Equality - 1', function(){
         expect(3 + 7 == 10).toBe( _ );
     });
 
-    it('3 + 7 == "10"', function(){
+    it('Equality - 2', function(){
         expect(3 + 7 == "10").toBe( _ );
     });
 
-    it('3 + 7 === 10', function(){
+    it('Equality - 3', function(){
         expect(3 + 7 === 10).toBe( _ );
     });
 
-    it('3 + 7 === "10"', function(){
+    it('Equality - 4', function(){
         expect(3 + 7 === "10").toBe( _ );
     });
 
-    it('"3" + "7" == "37"', function(){
+    it('Equality - 5', function(){
         expect("3" + "7" == "37").toBe( _ );
     });
 
-    it('"3" + "7" == 37', function(){
+    it('Equality - 6', function(){
         expect("3" + "7" == 37).toBe( _ );
     });
 
-    it('"3" + "7" === "37"', function(){
+    it('Equality - 7', function(){
         expect("3" + "7" === "37").toBe( _ );
     });
 

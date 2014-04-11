@@ -1,4 +1,4 @@
-describe('About prototype inheritance : ', function(){
+describe('Prototype inheritance', function(){
 
     var Mammal = function(name) {
         this.name = name;
@@ -10,7 +10,7 @@ describe('About prototype inheritance : ', function(){
         }
     };
 
-    it("defining a 'class'", function() {
+    it("Prototype inheritance - 1", function() {
         var eric  = new Mammal("Eric");
         expect(eric.sayHi()).toBe( _ );
     });
@@ -19,12 +19,12 @@ describe('About prototype inheritance : ', function(){
         return this.name + "'s favourite saying is " + this.sayHi();
     };
 
-    it("more functions", function() {
+    it("Prototype inheritance - 2", function() {
         var bobby = new Mammal("Bobby");
         expect(bobby.favouriteSaying()).toBe( _ );
     });
 
-    it("calling functions added to a prototype after an object was created", function() {
+    it("Prototype inheritance - 3", function() {
         var paul = new Mammal("Paul");
         Mammal.prototype.numberOfLettersInName = function() {
             return this.name.length;
@@ -43,7 +43,7 @@ describe('About prototype inheritance : ', function(){
 
     extend(Bat, Mammal);
 
-    it("inheritance", function() {
+    it("Prototype inheritance - 4", function() {
         var lenny = new Bat("Lenny", "1.5m");
         expect(lenny.sayHi()).toBe( _ );
         expect(lenny.wingspan).toBe( _ );

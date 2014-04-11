@@ -1,6 +1,6 @@
-describe('About control structures : ', function(){
+describe('Control structures', function(){
 
-    it('if', function(){
+    it('Control structures - 1', function(){
         var result = false;
         if (2 > 0) {
             result = true;
@@ -8,12 +8,12 @@ describe('About control structures : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('ternary operator', function(){
+    it('Control structures - 2', function(){
         var fruit = true ? "orange" : "banana";
         expect(fruit).toBe( _ );
     });
 
-    it('switch 1', function(){
+    it('Control structures - 3', function(){
         var result = 0;
         switch (2) {
             case 1:
@@ -26,7 +26,7 @@ describe('About control structures : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('switch 2', function(){
+    it('Control structures - 4', function(){
         var result = "Pippin";
         switch ("m") {
             case "f":
@@ -42,7 +42,7 @@ describe('About control structures : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('switch 3', function(){
+    it('Control structures - 5', function(){
         var result = "Pippin";
         switch ("s") {
             case "f":
@@ -58,7 +58,7 @@ describe('About control structures : ', function(){
     });
 
 
-    it('null coalescing', function(){
+    it('Control structures - 6', function(){
         var fruit = null || "banana";
         expect(fruit).toBe( _ );
 

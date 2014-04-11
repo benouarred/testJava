@@ -1,11 +1,11 @@
-describe('About objects : ', function(){
+describe('Objects', function(){
 
-    it('type', function(){
+    it('Objects - 1', function(){
         var result = {};
         expect(typeof(result)).toBe( _ );
     });
 
-    it('literal notation', function(){
+    it('Objects - 2', function(){
         var person = {
             // _
         };
@@ -13,7 +13,7 @@ describe('About objects : ', function(){
         expect(person.age).toBe(51);
     });
 
-    it('dynamically adding properties', function(){
+    it('Objects - 3', function(){
         var person = {};
         // _
         // _
@@ -21,7 +21,7 @@ describe('About objects : ', function(){
         expect(person.age).toBe(51);
     });
 
-    it('adding properties from strings', function(){
+    it('Objects - 4', function(){
         var person = {};
         // _
         // _
@@ -29,7 +29,7 @@ describe('About objects : ', function(){
         expect(person['phone-number']).toBe('0145254515');
     });
 
-    it('adding functions', function(){
+    it('Objects - 5', function(){
         var person = {
             name: "Jean Paul",
             age: 25,

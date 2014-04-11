@@ -1,6 +1,6 @@
-describe('About this : ', function(){
+describe('This', function(){
 
-    it("'this' inside a method", function () {
+    it("This - 1", function () {
         var person = {
             name: 'bob',
             intro: function () {
@@ -11,7 +11,7 @@ describe('About this : ', function(){
     });
 
 
-    it("'this' on unattached function", function () {
+    it("This - 2", function () {
         var person = {
             name: 'bob',
             intro: function () {
@@ -27,7 +27,7 @@ describe('About this : ', function(){
     });
 
 
-    it("'this' set explicitly", function () {
+    it("This - 3", function () {
         var person = {
             name: 'bob',
             intro: function () {

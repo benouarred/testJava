@@ -1,6 +1,6 @@
-describe('About truthyness : ', function(){
+describe('Truthyness', function(){
 
-    it('of positive numbers', function(){
+    it('Truthyness - 1', function(){
         var result;
         if(3){
             result = true;
@@ -10,7 +10,7 @@ describe('About truthyness : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('of negative numbers', function(){
+    it('Truthyness - 2', function(){
         var result;
         if(-1){
             result = true;
@@ -20,7 +20,7 @@ describe('About truthyness : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('of zero', function(){
+    it('Truthyness - 3', function(){
         var result;
         if(0){
             result = true;
@@ -30,7 +30,7 @@ describe('About truthyness : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('of null', function(){
+    it('Truthyness - 4', function(){
         var result;
         if(null){
            result = true;
@@ -40,7 +40,7 @@ describe('About truthyness : ', function(){
         expect(result).toBe( _ );
     });
 	
-	    it('of undefined', function(){
+	it('Truthyness - 5', function(){
         var result;
         if(undefined){
            result = true;

@@ -1,13 +1,13 @@
-describe('About scopes : ', function(){
+describe('Scopes', function(){
 
     variable = 42;
 
-    it("global variables", function() {
+    it("Scopes - 1", function() {
         expect(variable).toBe( _ );
     });
 
 
-    it("variables declared inside of a function", function() {
+    it("Scopes - 2", function() {
         var fruit = "banana";
 
         (function() {

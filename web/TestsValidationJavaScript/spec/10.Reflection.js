@@ -1,6 +1,6 @@
-describe('About Reflection : ', function(){
+describe('Reflection : ', function(){
 
-    it("property enumeration", function() {
+    it("Reflection - 1", function() {
         var keys = [];
         var values = [];
         var person = {name: 'Thierry LAU', age: 30, unemployed: true};
@@ -23,7 +23,7 @@ describe('About Reflection : ', function(){
 
     B.prototype = new A();
 
-    it("hasOwnProperty", function() {
+    it("Reflection - 2", function() {
         var b = new B();
 
         var keys = [];
@@ -43,7 +43,7 @@ describe('About Reflection : ', function(){
         expect(ownKeys).toEqual( _ );
     });
 
-    it("constructor property", function () {
+    it("Reflection - 3", function () {
         var a = new A();
         var b = new B();
         expect(typeof(a.constructor)).toBe( _ );

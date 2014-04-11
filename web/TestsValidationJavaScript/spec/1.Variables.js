@@ -1,8 +1,8 @@
-describe('About Variables : ', function(){
+describe('Variables', function(){
 
     nom = "Pierre";
 
-    it('assign a value to a variable in global scope', function(){
+    it('Variables - 1', function(){
         // _
         expect(nom).toBe('Thierry');
         expect(window.nom).toBe('Thierry');
@@ -10,7 +10,7 @@ describe('About Variables : ', function(){
 
     age = 6;
 
-    it('assign a value to a local variable', function(){
+    it('Variables - 2', function(){
         // _
         expect(age).toBe(4);
         expect(window.age).toBe(6);

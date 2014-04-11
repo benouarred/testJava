@@ -1,6 +1,6 @@
-describe('About operators : ', function(){
+describe('Operators', function(){
 
-    it('addition', function(){
+    it('Operators - 1', function(){
         var result = 0;
         for (var i = 0; i <= 3; i++) {
             result = result + i;
@@ -8,7 +8,7 @@ describe('About operators : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('assignment addition', function(){
+    it('Operators - 2', function(){
         var result = 0;
         for (var i = 0; i <= 3; i++) {
             result += i;
@@ -16,7 +16,7 @@ describe('About operators : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('subtraction', function(){
+    it('Operators - 3', function(){
         var result = 3;
         for (var i = 0; i <= 2; i++) {
             result = result - i;
@@ -24,7 +24,7 @@ describe('About operators : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('assignment subtraction', function(){
+    it('Operators - 4', function(){
         var result = 3;
         for (var i = 0; i <= 2; i++) {
             result -= i;
@@ -32,7 +32,7 @@ describe('About operators : ', function(){
         expect(result).toBe( _ );
     });
 
-    it('modulus', function(){
+    it('Operators - 5', function(){
         var result = 11;
         var x = 5;
         result %= x;

@@ -1,6 +1,6 @@
-describe('About Functions and Closure : ', function(){
+describe('Functions and Closure', function(){
 
-    it("defining functions directly", function() {
+    it("Functions and Closure - 1", function() {
         var result = "a";
         function changeResult() {
             result = "b";
@@ -9,13 +9,13 @@ describe('About Functions and Closure : ', function(){
         expect(result).toBe( _ );
     });
 
-    it("assigning functions to variables", function() {
+    it("Functions and Closure - 2", function() {
         var action = _;
         expect(action(4)).toBe(12);
     });
 
 
-    it("self invoking functions", function() {
+    it("Functions and Closure - 3", function() {
         var value = "orange";
 
         (function( _ ) {
@@ -30,7 +30,7 @@ describe('About Functions and Closure : ', function(){
     });
 
 
-    it("arguments array", function() {
+    it("Functions and Closure - 4", function() {
         var add = function() {
             var total = 0;
             for(var i = 0; i < arguments.length; i++) {
