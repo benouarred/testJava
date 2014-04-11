@@ -2,7 +2,7 @@ describe('About operators : ', function(){
 
     it('addition', function(){
         var result = 0;
-        for (var i = 0; i <= 5; i++) {
+        for (var i = 0; i <= 3; i++) {
             result = result + i;
         }
         expect(result).toBe( _ );
@@ -10,14 +10,14 @@ describe('About operators : ', function(){
 
     it('assignment addition', function(){
         var result = 0;
-        for (var i = 0; i <=5; i++) {
+        for (var i = 0; i <= 3; i++) {
             result += i;
         }
         expect(result).toBe( _ );
     });
 
     it('subtraction', function(){
-        var result = 5;
+        var result = 3;
         for (var i = 0; i <= 2; i++) {
             result = result - i;
         }
@@ -25,7 +25,7 @@ describe('About operators : ', function(){
     });
 
     it('assignment subtraction', function(){
-        var result = 5;
+        var result = 3;
         for (var i = 0; i <= 2; i++) {
             result -= i;
         }
