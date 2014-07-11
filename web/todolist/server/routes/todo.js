@@ -1,13 +1,13 @@
 var todos = [
     {
-        user_id : 1,
+        id : 1,
         description : "Faire les courses",
         memo : 'Pomme, poire, lessive',
         priority : 1,
         updated_at : Date.now()
     },
     {
-        user_id : 2,
+        id : 2,
         description : "Envoyer le courrier",
         memo : 'Urgent',
         priority : 2,
