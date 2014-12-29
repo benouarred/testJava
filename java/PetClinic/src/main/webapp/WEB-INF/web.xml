@@ -1,117 +1,129 @@
-<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         version="2.4" 
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
 
-    <display-name>petclinic</display-name>
+    <display-name>Spring PetClinic</display-name>
+    <description>Spring PetClinic sample application</description>
     
-    <description>PetClinic for SFEIR Exam</description>
-    
-    <!-- Enable escaping of form submission contents -->
     <context-param>
-        <param-name>defaultHtmlEscape</param-name>
-        <param-value>true</param-value>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>jpa</param-value>
     </context-param>
-    
+
+   <!-- When using Spring JDBC, use the following: -->
+   <!--  <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>jdbc</param-value>
+    </context-param>  -->
+
+   <!--  When using Spring Data JPA, uncomment the following: -->
+   <!--
+   	<context-param>
+        <param-name>spring.profiles.active</param-name>
+		<param-value>spring-data-jpa</param-value>
+    </context-param>
+	-->
+
+    <!--
+		- Location of the XML file that defines the root application context.
+		- Applied by ContextLoaderListener.
+	-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:META-INF/spring/applicationContext*.xml</param-value>
+        <param-value>classpath:spring/business-config.xml, classpath:spring/tools-config.xml</param-value>
     </context-param>
-    
-    <filter>
-        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
-        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
-    </filter>
-    
-    <filter>
-        <filter-name>CharacterEncodingFilter</filter-name>
-        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-        <init-param>
-            <param-name>forceEncoding</param-name>
-            <param-value>true</param-value>
-        </init-param>
-    </filter>
-    
-    <filter>
-        <filter-name>HttpMethodFilter</filter-name>
-        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
-    </filter>
-    
-    <filter>
-        <filter-name>UrlRewriteFilter</filter-name>
-        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
-    <filter-mapping>
-        <filter-name>CharacterEncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
-    <filter-mapping>
-        <filter-name>HttpMethodFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
-    <filter-mapping>
-        <filter-name>UrlRewriteFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
-    <!-- Creates the Spring Container shared by all Servlets and Filters -->
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    
-    <!-- Handles Spring requests -->
+
+    <!--
+- Servlet that dispatches request to registered handlers (Controller implementations).
+-->
     <servlet>
         <servlet-name>petclinic</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/spring/webmvc-config.xml</param-value>
+            <param-value>classpath:spring/mvc-core-config.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    
-    <servlet>
-        <servlet-name>Resource Servlet</servlet-name>
-        <servlet-class>org.springframework.js.resource.ResourceServlet</servlet-class>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>Resource Servlet</servlet-name>
-        <url-pattern>/resources/*</url-pattern>
-    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>petclinic</servlet-name>
-        <url-pattern>/app/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- Dandelion servlet definition and mapping -->
+    <servlet>
+        <servlet-name>dandelionServlet</servlet-name>
+        <servlet-class>com.github.dandelion.core.web.DandelionServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dandelionServlet</servlet-name>
+        <url-pattern>/dandelion-assets/*</url-pattern>
+    </servlet-mapping>
+   
+    <!-- Dandelion filter definition and mapping -->
+    <filter>
+        <filter-name>dandelionFilter</filter-name>
+        <filter-class>com.github.dandelion.core.web.DandelionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>dandelionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- used so we can use forms of method type 'PUT' and 'DELETE' (such as in the Pet form)
+see here: http://static.springsource.org/spring/docs/current/spring-framework-reference/html/view.html#rest-method-conversion
+-->
+    <filter>
+        <filter-name>httpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>httpMethodFilter</filter-name>
+        <servlet-name>petclinic</servlet-name>
+    </filter-mapping>
     
-    <session-config>
-        <session-timeout>10</session-timeout>
-    </session-config>
+    <!-- used to provide the ability to enter Chinese characters inside the Owner Form -->    
+    <filter>
+	    <filter-name>encodingFilter</filter-name>
+	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	    <init-param>
+	        <param-name>encoding</param-name>
+	        <param-value>UTF-8</param-value>
+	    </init-param>
+	    <init-param>
+	        <param-name>forceEncoding</param-name>
+	        <param-value>true</param-value>
+	    </init-param>
+	 </filter>
+	
+	 <filter-mapping>
+	    <filter-name>encodingFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	 </filter-mapping>
+ 
+     <!-- Dandelion-Datatables filter, used for basic export -->
+     <filter>
+        <filter-name>datatables</filter-name>
+        <filter-class>com.github.dandelion.datatables.core.web.filter.DatatablesFilter</filter-class>
+     </filter>
+     <filter-mapping>
+        <filter-name>datatables</filter-name>
+        <url-pattern>/*</url-pattern>
+     </filter-mapping>
     
-    <welcome-file-list>
-        <welcome-file>index</welcome-file>
-    </welcome-file-list>
-    
-    <error-page>
-        <exception-type>java.lang.Exception</exception-type>
-        <location>/app/uncaughtException</location>
-    </error-page>
-    
-    <error-page>
-        <error-code>404</error-code>
-        <location>/app/resourceNotFound</location>
-    </error-page>
+    <!--  	No need for welcome-file declaration here.
+    		See inside spring/mvc-core-config.xml : 
+    		<mvc:view-controller path="/" view-name="welcome" /> 
+    -->
+
 </web-app>
