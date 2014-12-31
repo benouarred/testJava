@@ -77,4 +77,10 @@ public class JpaOwnerRepositoryImpl implements OwnerRepository {
 
     }
 
+    @Override
+    public Collection<Owner> getOwners() {
+        Query query = this.em.createQuery("SELECT DISTINCT owner FROM Owner owner");
+        return query.getResultList();
+    }
+
 }

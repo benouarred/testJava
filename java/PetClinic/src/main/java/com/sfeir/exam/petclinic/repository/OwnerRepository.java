@@ -75,5 +75,11 @@ public interface OwnerRepository {
      */
     void save(Owner owner) throws DataAccessException;
 
+    /**
+     * Get all owners
+     *
+     * @return Collection of <code>Owner</code>
+     */
+    Collection<Owner> getOwners();
 
 }

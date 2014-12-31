@@ -20,6 +20,7 @@ import com.sfeir.exam.petclinic.model.BaseEntity;
 import com.sfeir.exam.petclinic.model.Pet;
 import com.sfeir.exam.petclinic.model.PetType;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -49,6 +50,13 @@ public interface PetRepository {
      *          if not found
      */
     Pet findById(int id) throws DataAccessException;
+
+    /**
+     * Retrieve all <code>Pets</code> from the data store.
+     *
+     * @return the <code>Pets</code> if found
+     */
+    Collection<Pet> findAll();
 
     /**
      * Save a <code>Pet</code> to the data store, either inserting or updating it.

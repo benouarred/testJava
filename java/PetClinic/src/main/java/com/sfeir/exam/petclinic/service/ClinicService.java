@@ -44,4 +44,8 @@ public interface ClinicService {
 
     Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException;
 
+    Collection<Owner> getOwners();
+
+    Collection<Pet> getPets();
+
 }

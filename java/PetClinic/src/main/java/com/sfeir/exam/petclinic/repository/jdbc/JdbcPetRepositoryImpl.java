@@ -16,6 +16,7 @@
 package com.sfeir.exam.petclinic.repository.jdbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -34,6 +35,7 @@ import com.sfeir.exam.petclinic.util.EntityUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +49,7 @@ import java.util.Map;
  * @author Mark Fisher
  */
 @Repository
+@Profile("jdbc")
 public class JdbcPetRepositoryImpl implements PetRepository {
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
@@ -101,6 +104,25 @@ public class JdbcPetRepositoryImpl implements PetRepository {
             pet.addVisit(visit);
         }
         return pet;
+    }
+
+    @Override
+    public List<Pet> findAll() {
+        List<JdbcPet> pets;
+
+        try {
+            pets = this.namedParameterJdbcTemplate.query(
+                    "SELECT * FROM pets",
+                    new HashMap<String, Object>(),
+                    new JdbcPetRowMapper());
+        } catch (EmptyResultDataAccessException ex) {
+            throw new ObjectRetrievalFailureException(Pet.class,ex);
+        }
+
+        List<Pet> resultList = new ArrayList<Pet>();
+        resultList.addAll(pets);
+
+        return resultList;
     }
 
     @Override

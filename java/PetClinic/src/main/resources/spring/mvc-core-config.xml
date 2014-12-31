@@ -20,7 +20,7 @@
         - POJOs labeled with the @Controller and @Service annotations are auto-detected.
     -->
     <context:component-scan
-            base-package="com.sfeir.exam.petclinic.web"/>
+            base-package="com.sfeir.exam.petclinic.web,com.sfeir.exam.petclinic.api"/>
 
     <mvc:annotation-driven conversion-service="conversionService"/>
 
@@ -32,6 +32,8 @@
     <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
     <mvc:view-controller path="/" view-name="welcome" />
+
+
 
     <!-- serve static resources (*.html, ...) from src/main/webapp/ 
     Required when both servlet-mapping is '/' and static resources need to be served -->

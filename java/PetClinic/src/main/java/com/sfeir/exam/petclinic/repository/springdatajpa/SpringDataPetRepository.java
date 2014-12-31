@@ -22,6 +22,7 @@ import com.sfeir.exam.petclinic.model.Pet;
 import com.sfeir.exam.petclinic.model.PetType;
 import com.sfeir.exam.petclinic.repository.PetRepository;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -35,4 +36,8 @@ public interface SpringDataPetRepository extends PetRepository, Repository<Pet, 
     @Override
     @Query("SELECT ptype FROM PetType ptype ORDER BY ptype.name")
     List<PetType> findPetTypes() throws DataAccessException;
+
+    @Override
+    @Query("SELECT DISTINCT pet FROM Pet pet")
+    Collection<Pet> findAll();
 }

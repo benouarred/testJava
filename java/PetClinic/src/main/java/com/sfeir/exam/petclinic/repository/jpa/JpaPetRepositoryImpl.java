@@ -51,6 +51,11 @@ public class JpaPetRepositoryImpl implements PetRepository {
     }
 
     @Override
+    public List<Pet> findAll() {
+        return this.em.createQuery("SELECT distinct pet FROM Pet pet").getResultList();
+    }
+
+    @Override
     public void save(Pet pet) {
     	if (pet.getId() == null) {
     		this.em.persist(pet);     		

@@ -69,6 +69,11 @@ public class ClinicServiceImpl implements ClinicService {
     }
 
     @Override
+    public Collection<Owner> getOwners() {
+        return ownerRepository.getOwners();
+    }
+
+    @Override
     @Transactional
     public void saveOwner(Owner owner) throws DataAccessException {
         ownerRepository.save(owner);
@@ -81,6 +86,11 @@ public class ClinicServiceImpl implements ClinicService {
         visitRepository.save(visit);
     }
 
+    @Override
+    @Transactional()
+    public Collection<Pet> getPets() throws DataAccessException {
+        return petRepository.findAll();
+    }
 
     @Override
     @Transactional(readOnly = true)

@@ -19,6 +19,9 @@
 		<spring-framework.version>4.1.1.RELEASE</spring-framework.version>
 		<spring-data-jpa.version>1.7.1.RELEASE</spring-data-jpa.version>
 
+        <!-- Jackson -->
+        <jackson-version>2.4.4</jackson-version>
+
 
 		<!-- Java EE / Java SE dependencies -->
 		<jsp.version>2.2</jsp.version>
@@ -184,6 +187,18 @@
 			<version>${logback.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+
+        <!-- Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-joda</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
 
 		<!-- used for Atom -->
 		<dependency>
@@ -354,18 +369,19 @@
 
 	<!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
 	<build>
-		<defaultGoal>install</defaultGoal>
-		<testResources>
-		  <testResource>
-		  	<!-- declared explicitly so Spring config files can be placed next to their corresponding JUnit test class 
-		  		(see example with ValidatorTests) -->
-		    <directory>${project.basedir}/src/test/java</directory>
-		  </testResource>
-		  <testResource>
-		    <directory>${project.basedir}/src/test/resources</directory>
-		  </testResource>
-		</testResources>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.build.testOutputDirectory}</targetPath>
+            </testResource>
+        </testResources>
 		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -380,15 +396,42 @@
 					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.17</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.13</version>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.16</version>
 				<configuration>
 					<includes>
-						<include>**/*Tests.java</include>
+						<include>**/*IT.java</include>
 					</includes>
+
 				</configuration>
+                <executions>
+                    <execution>
+                        <id>failsafe-integration-tests</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -396,32 +439,6 @@
 				<version>2.3</version>
 				<configuration>
 					<warName>petclinic</warName>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
-					<wtpversion>2.0</wtpversion>
-					<sourceIncludes>
-						<sourceInclude>**/*.*</sourceInclude>
-					</sourceIncludes>
-					<additionalBuildcommands>
-						<buildCommand>
-							<name>org.springframework.ide.eclipse.core.springbuilder</name>
-						</buildCommand>
-						<buildCommand>
-							<name>org.eclipse.m2e.core.maven2Builder</name>
-						</buildCommand>
-					</additionalBuildcommands>
-					<additionalProjectnatures>
-						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
-						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-						<projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
-					</additionalProjectnatures>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -434,18 +451,66 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <!-- Retrieving random port for tomcat plugin execution -->
+                    <execution>
+                        <id>reserve-network-port</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <portNames>
+                                <portName>tomcat.http.port</portName>
+                            </portNames>
+                        </configuration>
+                        <goals>
+                            <goal>reserve-network-port</goal>
+                            <goal>local-ip</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<server>tomcat-development-server</server>
-					<port>9966</port>
-					<path>/petclinic</path>
-				</configuration>
+				<version>2.2</version>
+                <configuration>
+                    <port>${tomcat.http.port}</port>
+                    <!-- application path always starts with /-->
+                    <path>/${url}</path>
+                    <useTestClasspath>false</useTestClasspath>
+                    <fork>true</fork>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>tomcat-run</id>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <fork>true</fork>
+                            <systemProperties>
+                                <!-- necessary because of the fork we cannot use systemProperties
+                                    tag -->
+                                <JAVA_OPTS>-Xms256m -Xmx512m -XX:MaxPermSize=256m</JAVA_OPTS>
+                                <spring.profiles.active>spring-data-jpa</spring.profiles.active>
+                            </systemProperties>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tomcat-shutdown</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>shutdown</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
 			</plugin>
 		</plugins>
 	</build>
 
-	<url>demopetclinic</url>
+	<url>petclinic</url>
 </project>
