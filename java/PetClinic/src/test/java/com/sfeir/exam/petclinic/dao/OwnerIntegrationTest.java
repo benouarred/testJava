@@ -18,6 +18,7 @@ import com.sfeir.exam.petclinic.dao.OwnerDao;
 import com.sfeir.exam.petclinic.domain.Owner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:META-INF/spring/applicationContext.xml"})
 public class OwnerIntegrationTest extends TestCase {
 
     private OwnerDataOnDemand dod;

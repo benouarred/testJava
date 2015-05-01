@@ -75,7 +75,10 @@ public class PetDao  {
     }
 
     public Query findPetsByNameAndWeight(String name, Float weight) {
-    	throw new UnsupportedOperationException("to be implemented");
+        Query q = getEntityManager().createQuery("SELECT Pet FROM Pet AS pet WHERE pet.name = :name AND pet.weight = :weight");
+        q.setParameter("name", name);
+        q.setParameter("weight", weight);
+        return q;
     }
     
     public Query findPetsBySendRemindersAndWeightLessThan(boolean sendReminders, Float weight) {

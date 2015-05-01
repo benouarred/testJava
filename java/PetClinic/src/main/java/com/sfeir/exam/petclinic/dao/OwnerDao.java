@@ -38,7 +38,8 @@ public class OwnerDao extends AbstractPersonDao {
     
     @SuppressWarnings("unchecked")
     public List<Owner> findOwnerEntries(int firstResult, int maxResults) {
-        throw new UnsupportedOperationException("to be implemented");
+        Query query = getEntityManager().createQuery("from Owner o").setFirstResult(firstResult).setMaxResults(maxResults);
+        return query.getResultList();
     }
 
 }
