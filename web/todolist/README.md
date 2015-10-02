@@ -18,10 +18,12 @@ Pour installer ce projet sur le poste du candidat :
 
 1. Récupérer le code source
 2. Se placer dans le répertoire `server` et exécuter la commande ```node todolist``` pour démarrer le serveur
-3. Se placer dans le répertoire `front` et exécuter la commande `grunt server` pour démarrer le server statique
+3. Test l'api [http://localhost:3000/api/todos](http://localhost:3000/api/todos)
+4. Se placer dans le répertoire `front` et exécuter la commande `grunt` pour démarrer le server statique
 5. Afficher la page [http://localhost:8888](http://localhost:8888) dans le navigateur si ce n'est pas fait automatiquement.
-6. Une page avec les instructions doit alors s'afficher
-7. L'environnement de test est prêt.
+6. Test l'api derrière le proxy [http://localhost:8888/api/todos](http://localhost:8888/api/todos)
+7. Une page avec les instructions doit alors s'afficher
+8. L'environnement de test est prêt.
 
 ## Important
 
@@ -37,5 +39,5 @@ Pour installer ce projet sur le poste du candidat :
 
 ## Contact
 
-* guedes.b@sfeir.com
+* balit.c@sfeir.com
 * lau.t@sfeir.com

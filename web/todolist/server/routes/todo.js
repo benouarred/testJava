@@ -1,13 +1,13 @@
 var todos = [
     {
-        user_id : 1,
+        id : 1,
         description : "Faire les courses",
         memo : 'Pomme, poire, lessive',
         priority : 1,
         updated_at : Date.now()
     },
     {
-        user_id : 2,
+        id : 2,
         description : "Envoyer le courrier",
         memo : 'Urgent',
         priority : 2,
@@ -32,7 +32,7 @@ exports.findById = function(req, res){
     var id = req.params.id;
 
     for(var i = 0; i < todos.length; i++){
-        if(todos[i].user_id == id){
+        if(todos[i].id == id){
             res.json(200, todos[i]);
         }
     }
@@ -46,7 +46,7 @@ exports.findById = function(req, res){
 exports.addTodo = function(req, res){
     var todo = req.body;
     todo.updated_at = Date.now();
-    todo.user_id = id++;
+    todo.id = id++;
     todos.push(todo);
     res.json(201);
 };
@@ -56,10 +56,10 @@ exports.addTodo = function(req, res){
  */
 exports.updateTodo = function(req, res){
     var todo = req.body;
-    var id = todo.user_id;
+    var id = todo.id;
 
     for(var i = 0; i < todos.length; i++){
-        if(todos[i].user_id === id){
+        if(todos[i].id === id){
             todos.splice(i, 1);
             todos.push(todo);
             res.json(200);
@@ -77,7 +77,7 @@ exports.deleteTodo = function(req, res){
     var id = req.params.id;
 
     for(var i = 0; i < todos.length; i++){
-        if(todos[i].user_id == id){
+        if(todos[i].id == id){
             todos.splice(i, 1);
             res.json(200);
         }
