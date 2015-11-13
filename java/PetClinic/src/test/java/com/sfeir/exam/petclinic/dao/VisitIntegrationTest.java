@@ -11,9 +11,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sfeir.exam.petclinic.dao.PetDao;
-import com.sfeir.exam.petclinic.dao.VisitDao;
-import com.sfeir.exam.petclinic.domain.Pet;
 import com.sfeir.exam.petclinic.domain.Visit;
 
 @RunWith(SpringJUnit4ClassRunner.class)

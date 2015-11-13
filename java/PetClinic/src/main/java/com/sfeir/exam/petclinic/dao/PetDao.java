@@ -64,7 +64,7 @@ public class PetDao  {
 
     @SuppressWarnings("unchecked")
     public List<Pet> findPetEntries(int firstResult, int maxResults) {
-        return getEntityManager().createQuery("select o from Pet o").setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    	throw new UnsupportedOperationException("to be implemented");
     }
 
     public Query findPetsByOwner(Owner owner) {
@@ -75,7 +75,10 @@ public class PetDao  {
     }
 
     public Query findPetsByNameAndWeight(String name, Float weight) {
-    	throw new UnsupportedOperationException("to be implemented");
+    	Query q = getEntityManager().createQuery("SELECT Pet FROM Pet AS pet WHERE pet.name = :name AND pet.weight = :weight");
+    	q.setParameter("name", name);
+    	q.setParameter("weight", weight);
+    	return q;
     }
     
     public Query findPetsBySendRemindersAndWeightLessThan(boolean sendReminders, Float weight) {
@@ -86,9 +89,6 @@ public class PetDao  {
     }
 
     public Query findPetsByTypeAndNameLike(PetType type, String name) {
-    	Query q = getEntityManager().createQuery("SELECT Pet FROM Pet AS pet WHERE pet.type = :type AND pet.name LIKE :name");
-    	q.setParameter("name", "%" + name + "%");
-    	q.setParameter("type", type);
-    	return q;
+    	throw new UnsupportedOperationException("to be implemented");
     }
 }

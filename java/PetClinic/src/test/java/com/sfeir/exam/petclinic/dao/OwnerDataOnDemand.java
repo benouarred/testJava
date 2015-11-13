@@ -8,7 +8,6 @@ import java.util.Random;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sfeir.exam.petclinic.dao.OwnerDao;
 import com.sfeir.exam.petclinic.domain.Owner;
 
 public class OwnerDataOnDemand {
