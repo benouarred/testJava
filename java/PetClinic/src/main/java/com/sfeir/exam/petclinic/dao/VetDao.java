@@ -2,8 +2,9 @@ package com.sfeir.exam.petclinic.dao;
 
 import java.util.List;
 
-import com.sfeir.exam.petclinic.domain.Vet;
 import org.springframework.stereotype.Repository;
+
+import com.sfeir.exam.petclinic.domain.Vet;
 
 @Repository
 public class VetDao extends AbstractPersonDao{

@@ -66,10 +66,7 @@ public class VisitDao {
     }
 
     public Query findVisitsByDescriptionAndVisitDate(String description, Date visitDate) {
-    	Query q = getEntityManager().createQuery("SELECT visit FROM Visit AS visit WHERE visit.description = :description AND visit.visitDate = :visitDate");
-    	q.setParameter("description", description);
-    	q.setParameter("visitDate", visitDate);
-    	return q;  
+        throw new UnsupportedOperationException("to be implemented");
     }
 
     public Query findVisitsByVisitDateBetween(Date minVisitDate, Date maxVisitDate) {
@@ -80,6 +77,8 @@ public class VisitDao {
     }
 
     public Query findVisitsByDescriptionLike(String description) {
-        throw new UnsupportedOperationException("to be implemented");
+    	Query q = getEntityManager().createQuery("SELECT visit FROM Visit AS visit WHERE visit.description LIKE :description");
+    	q.setParameter("description", "%" + description + "%");
+    	return q;
     }
 }

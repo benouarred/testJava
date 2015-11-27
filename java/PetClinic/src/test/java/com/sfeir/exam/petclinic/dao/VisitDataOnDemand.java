@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sfeir.exam.petclinic.dao.PetDao;
-import com.sfeir.exam.petclinic.dao.VisitDao;
 import com.sfeir.exam.petclinic.domain.Visit;
 
 public class VisitDataOnDemand {

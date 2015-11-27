@@ -7,7 +7,6 @@ import java.util.Random;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sfeir.exam.petclinic.dao.VetDao;
 import com.sfeir.exam.petclinic.domain.Vet;
 
 public class VetDataOnDemand {
