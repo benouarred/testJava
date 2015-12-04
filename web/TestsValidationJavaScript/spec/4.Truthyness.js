@@ -7,7 +7,7 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( true );
     });
 
     it('Truthyness - 2', function(){
@@ -17,7 +17,7 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( true );
     });
 
     it('Truthyness - 3', function(){
@@ -27,7 +27,7 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( false );
     });
 
     it('Truthyness - 4', function(){
@@ -37,9 +37,9 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( false );
     });
-	
+
 	it('Truthyness - 5', function(){
         var result;
         if(undefined){
@@ -47,7 +47,7 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( false );
     });
 
 });

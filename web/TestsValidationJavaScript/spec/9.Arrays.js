@@ -1,7 +1,7 @@
 describe('Arrays', function(){
 
     it('Arrays - 1', function(){
-        var collection = _ ;
+        var collection = ["meaning of life",42,true] ;
         expect(collection[0]).toBe("meaning of life");
         expect(collection[1]).toBe(42);
         expect(collection[2]).toBe(true);
@@ -9,19 +9,19 @@ describe('Arrays', function(){
     });
 
     it('Arrays - 2', function(){
-        expect(typeof([])).toBe( _ );
+        expect(typeof([])).toBe( 'object' );
     });
 
     it('Arrays - 3', function(){
         var collection = ['a','b','c'];
-        expect(collection._).toBe(3);
+        expect(collection.length).toBe(3);
     });
 
     it('Arrays - 4', function(){
         var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        var workingWeek = daysOfWeek.splice(_, _ );
-        expect(daysOfWeek).toEqual( _ );
-        expect(workingWeek).toEqual( _ );
+        var workingWeek = daysOfWeek.splice(5, 2 );
+        expect(daysOfWeek).toEqual( ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] );
+        expect(workingWeek).toEqual( ['Saturday', 'Sunday'] );
     });
 
     it('Arrays - 5', function() {

@@ -5,12 +5,12 @@ describe('Control structures', function(){
         if (2 > 0) {
             result = true;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( true );
     });
 
     it('Control structures - 2', function(){
         var fruit = true ? "orange" : "banana";
-        expect(fruit).toBe( _ );
+        expect(fruit).toBe( "orange" );
     });
 
     it('Control structures - 3', function(){
@@ -23,7 +23,7 @@ describe('Control structures', function(){
                 result = 2;
                 break;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( 2 );
     });
 
     it('Control structures - 4', function(){
@@ -39,7 +39,7 @@ describe('Control structures', function(){
                 result = "Merry";
                 break;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( "Merry" );
     });
 
     it('Control structures - 5', function(){
@@ -54,16 +54,16 @@ describe('Control structures', function(){
                 result = "Merry";
                 break;
         }
-        expect(result).toBe( _ );
+        expect(result).toBe( "Merry" );
     });
 
 
     it('Control structures - 6', function(){
         var fruit = null || "banana";
-        expect(fruit).toBe( _ );
+        expect(fruit).toBe( "banana" );
 
         var myFavouriteFruit = fruit || "apple";
-        expect(myFavouriteFruit).toBe( _ );
+        expect(myFavouriteFruit).toBe( "banana" );
     })
 
 });
