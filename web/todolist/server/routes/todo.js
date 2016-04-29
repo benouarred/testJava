@@ -34,6 +34,7 @@ exports.findById = function(req, res){
     for(var i = 0; i < todos.length; i++){
         if(todos[i].id == id){
             res.json(200, todos[i]);
+            return;
         }
     }
 
@@ -48,7 +49,7 @@ exports.addTodo = function(req, res){
     todo.updated_at = Date.now();
     todo.id = id++;
     todos.push(todo);
-    res.json(201);
+    res.status(201).end();
 };
 
 /*
@@ -57,16 +58,22 @@ exports.addTodo = function(req, res){
 exports.updateTodo = function(req, res){
     var todo = req.body;
     var id = todo.id;
+    
+    if (String(id) !== req.params.id) {
+        res.json(400, "Bad request");
+        return;
+    }
 
     for(var i = 0; i < todos.length; i++){
         if(todos[i].id === id){
-            todos.splice(i, 1);
-            todos.push(todo);
-            res.json(200);
+            todo.updated_at = Date.now();
+            todos.splice(i, 1, todo);
+            res.status(204).end();
+            return;
         }
     }
 
-    res.json(304, "Not modified");
+    res.json(404, "Not found");
 };
 
 /*
@@ -77,11 +84,12 @@ exports.deleteTodo = function(req, res){
     var id = req.params.id;
 
     for(var i = 0; i < todos.length; i++){
-        if(todos[i].id == id){
+        if(String(todos[i].id) === id){
             todos.splice(i, 1);
-            res.json(200);
+            res.status(204).end();
+            return;
         }
     }
 
-    res.json(304, "Not modified");
+    res.json(404, "Not found");
 };
