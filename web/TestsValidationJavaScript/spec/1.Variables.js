@@ -3,7 +3,7 @@ describe('Variables', function() {
     nom = "Pierre";
 
     it('Variables - 1', function() {
-        nom = 'Thierry'
+        // _
         expect(nom).toBe('Thierry');
         expect(window.nom).toBe('Thierry');
     });
@@ -11,13 +11,13 @@ describe('Variables', function() {
     age = 6;
 
     it('Variables - 2', function() {
-        var age = 4;
+        // _
         expect(age).toBe(4);
         expect(window.age).toBe(6);
     });
 
     it('Variables - 3', function() {
-        expect(company).toBe( undefined );
+        expect(company).toBe( _ );
         var company = 'sfeir';
     });
 
