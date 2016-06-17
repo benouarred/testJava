@@ -1,52 +1,57 @@
 package com.sfeir.badcalculator;
 
-public class Operation {
+class Operation {
 
     private static String input;
-    private int left;
-    private int right;
 
 
-    private static OperationExtractor extractor;
-
-    private String operation;
-
-    public static Integer compute(String inputString) {
+    static int compute(String inputString) {
         input = inputString;
-        extractor = new OperationExtractor(inputString);
         int opsi = input.indexOf(' ');
         int opei = input.lastIndexOf(' ');
         String operation = input.substring(opsi + 1, opei);
 
-        //System.out.println("_" + operation + "_");
-
-        if(operation == "plus") {
-            System.out.println("Plus");
-            return Integer.parseInt(input.substring(0, input.indexOf(' '))) + Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        } else if (operation == "moins") {
-            System.out.println("Moins");
-            return Integer.parseInt(input.substring(0, input.indexOf(' '))) - Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        } else if (operation == "fois") {
-            System.out.println("Fois");
-            return Integer.parseInt(input.substring(0, input.indexOf(' '))) * Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        }  else if (operation == "divisé") {
-            System.out.println("Divis�");
-            return Integer.parseInt(input.substring(0, input.indexOf(' '))) / Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
+        switch (operation) {
+            case "plus":
+                return add();
+            case "moins":
+                return sub();
+            case "fois":
+                return mult();
+            case "divise":
+                return divide();
         }
-
-        return null;
+        throw new OperationException();
 
     }
 
-    public int getLeft() {
+
+    private static int divide() {
+        System.out.println("Divise");
+        return Integer.parseInt(String.valueOf(getLeft() / getRight()));
+    }
+
+    private static int mult() {
+        System.out.println("Fois");
+        return Integer.parseInt(String.valueOf(getLeft() * getRight()));
+    }
+
+    private static int sub() {
+        System.out.println("Moins");
+        return Integer.parseInt(String.valueOf(getLeft() - getRight()));
+    }
+
+    private static int add() {
+        System.out.println("Plus");
+        return Integer.parseInt(String.valueOf(getLeft() + getRight()));
+    }
+
+    static int getLeft() {
         return Integer.parseInt(input.substring(0, input.indexOf(' ')));
     }
 
-    public int getRight() {
+    static int getRight() {
         return Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
     }
 
-    public OperationExtractor getExtractor() {
-        return extractor;
-    }
 }
