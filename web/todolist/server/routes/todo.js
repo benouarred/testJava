@@ -48,7 +48,7 @@ exports.addTodo = function(req, res){
     todo.updated_at = Date.now();
     todo.id = id++;
     todos.push(todo);
-    res.json(201);
+    res.json(201,todos);
 };
 
 /*
