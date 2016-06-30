@@ -37,6 +37,7 @@ Expliquer au candidat qu'il y a deux serveurs configurés au niveau du pom du pr
 Voir si le candidat connait mvn tomcat:run ou mvn jetty:run sinon le faire pour lui pour avancer.
 
 7- Essayer de créer les différentes entités --> Exception lors de la création du pet.
+	Après la modification de la classe PetController, le test PetControllerTest échouera, il faut le modifier avant de redéployer
 
 8- Eventuellement demander au candidat de dessiner le diagramme de classe des entités de l'application.
 
