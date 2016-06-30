@@ -55,7 +55,7 @@ public class PetController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String show(@PathVariable("id") Long id, ModelMap modelMap) {
-        if (id != null)
+        if (id == null || id > 0)
             throw new IllegalArgumentException("An Identifier is required");
         modelMap.addAttribute("pet", petDao.findPet(id));
         return "pets/show";

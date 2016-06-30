@@ -4,16 +4,20 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sfeir.exam.petclinic.domain.Vet;
 
+import static org.junit.Assert.*;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-public class VetIntegrationTest extends TestCase{
+public class VetIntegrationTest{
 
     private VetDataOnDemand dod;
 	   
@@ -27,11 +31,17 @@ public class VetIntegrationTest extends TestCase{
 	    	return dod; 
 	    }
 
-	  
-	    @Test
+		@Before
+		@Transactional
+		public void initTest(){
+			getDod().getRandomVet();
+			assertNotNull("Data on demand for 'Vet' failed to initialize correctly", dod);
+		}
+
+
+		@Test
 	    @Transactional	    
 	    public void testCountVets() {
-	        assertNotNull("Data on demand for 'Vet' failed to initialize correctly", getDod().getRandomVet());
 	        long count = vetDao.countVets();
 	        assertTrue("Counter for 'Vet' incorrectly reported there were no entries", count > 0);
 	    }
@@ -39,7 +49,6 @@ public class VetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindVet() {
-	        assertNotNull("Data on demand for 'Vet' failed to initialize correctly", getDod().getRandomVet());
 	        Long id = getDod().getRandomVet().getId();
 	        assertNotNull("Data on demand for 'Vet' failed to provide an identifier", id);
 	        Vet obj = vetDao.findVet(id);
@@ -50,7 +59,6 @@ public class VetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindAllVets() {
-	        assertNotNull("Data on demand for 'Vet' failed to initialize correctly", getDod().getRandomVet());
 	        long count = vetDao.countVets();
 	        assertTrue("Too expensive to perform a find all test for 'Vet', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 250);
 	        List<Vet> result = vetDao.findAllVets();
@@ -61,7 +69,6 @@ public class VetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindVetEntries() {
-	        assertNotNull("Data on demand for 'Vet' failed to initialize correctly", getDod().getRandomVet());
 	        long count = vetDao.countVets();
 	        if (count > 20) count = 20;
 	        List<Vet> result = vetDao.findVetEntries(0, (int)count);
@@ -72,7 +79,6 @@ public class VetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testFlush() {
-	        assertNotNull("Data on demand for 'Vet' failed to initialize correctly", getDod().getRandomVet());
 	        Long id = getDod().getRandomVet().getId();
 	        assertNotNull("Data on demand for 'Vet' failed to provide an identifier", id);
 	        Vet obj = vetDao.findVet(id);
@@ -86,7 +92,6 @@ public class VetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testMerge() {
-	        assertNotNull("Data on demand for 'Vet' failed to initialize correctly", getDod().getRandomVet());
 	        Long id = getDod().getRandomVet().getId();
 	        assertNotNull("Data on demand for 'Vet' failed to provide an identifier", id);
 	        Vet obj = vetDao.findVet(id);
@@ -101,7 +106,6 @@ public class VetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testPersist() {
-	        assertNotNull("Data on demand for 'Vet' failed to initialize correctly", getDod().getRandomVet());
 	        Vet obj = getDod().getNewTransientVet(Integer.MAX_VALUE);
 	        assertNotNull("Data on demand for 'Vet' failed to provide a new transient entity", obj);
 	        assertNull("Expected 'Vet' identifier to be null", obj.getId());
@@ -113,7 +117,6 @@ public class VetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testRemove() {
-	        assertNotNull("Data on demand for 'Vet' failed to initialize correctly", getDod().getRandomVet());
 	        Long id = getDod().getRandomVet().getId();
 	        assertNotNull("Data on demand for 'Vet' failed to provide an identifier", id);
 	        Vet obj = vetDao.findVet(id);

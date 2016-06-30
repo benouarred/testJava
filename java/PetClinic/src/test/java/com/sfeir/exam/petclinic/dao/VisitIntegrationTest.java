@@ -4,18 +4,19 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-
+import static org.junit.Assert.*;
 import com.sfeir.exam.petclinic.domain.Visit;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml")
-public class VisitIntegrationTest extends TestCase{
+public class VisitIntegrationTest {
 	    
 	private VisitDataOnDemand dod;
 	    
@@ -30,11 +31,18 @@ public class VisitIntegrationTest extends TestCase{
 	    	} 
 	    	return dod; 
 	    }
-	    
+
+		@Before
+		@Transactional
+		public void init(){
+			getDod().getRandomVisit();
+			assertNotNull("Data on demand for 'Visit' failed to initialize correctly", dod);
+
+		}
+
 	    @Test
 	    @Transactional	    
 	    public void testCountVisits() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        long count = visitDao.countVisits();
 	        assertTrue("Counter for 'Visit' incorrectly reported there were no entries", count > 0);
 	    }
@@ -42,7 +50,6 @@ public class VisitIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindVisit() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        Long id = getDod().getRandomVisit().getId();
 	        assertNotNull("Data on demand for 'Visit' failed to provide an identifier", id);
 	        Visit obj = visitDao.findVisit(id);
@@ -53,7 +60,6 @@ public class VisitIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindAllVisits() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        long count = visitDao.countVisits();
 	        assertTrue("Too expensive to perform a find all test for 'Visit', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 250);
 	        List<Visit> result = visitDao.findAllVisits();
@@ -64,7 +70,6 @@ public class VisitIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindVisitEntries() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        long count = visitDao.countVisits();
 	        if (count > 20) count = 20;
 	        List<Visit> result = visitDao.findVisitEntries(0, (int)count);
@@ -75,7 +80,6 @@ public class VisitIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testFlush() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        Long id = getDod().getRandomVisit().getId();
 	        assertNotNull("Data on demand for 'Visit' failed to provide an identifier", id);
 	        Visit obj = visitDao.findVisit(id);
@@ -89,7 +93,6 @@ public class VisitIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testMerge() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        Long id = getDod().getRandomVisit().getId();
 	        assertNotNull("Data on demand for 'Visit' failed to provide an identifier", id);
 	        Visit obj = visitDao.findVisit(id);
@@ -104,7 +107,6 @@ public class VisitIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testPersist() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        Visit obj = getDod().getNewTransientVisit(Integer.MAX_VALUE);
 	        assertNotNull("Data on demand for 'Visit' failed to provide a new transient entity", obj);
 	        assertNull("Expected 'Visit' identifier to be null", obj.getId());
@@ -116,7 +118,6 @@ public class VisitIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testRemove() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        Long id = getDod().getRandomVisit().getId();
 	        assertNotNull("Data on demand for 'Visit' failed to provide an identifier", id);
 	        Visit obj = visitDao.findVisit(id);
@@ -130,7 +131,6 @@ public class VisitIntegrationTest extends TestCase{
 		@Test
 	    @Transactional
 	    public void testFindVisitsByDescriptionAndVisitDate() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        Long id = getDod().getRandomVisit().getId();
 	        assertNotNull("Data on demand for 'Visit' failed to provide an identifier", id);
 	        Visit visit = visitDao.findVisit(id);
@@ -143,7 +143,6 @@ public class VisitIntegrationTest extends TestCase{
 		@Test
 	    @Transactional
 	    public void testFindVisitsByVisitDateBetween() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        Long id = getDod().getRandomVisit().getId();
 	        assertNotNull("Data on demand for 'Visit' failed to provide an identifier", id);
 	        Visit visit = visitDao.findVisit(id);
@@ -155,7 +154,6 @@ public class VisitIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testFindVisitsByDescriptionLike() {
-	        assertNotNull("Data on demand for 'Visit' failed to initialize correctly", getDod().getRandomVisit());
 	        Long id = getDod().getRandomVisit().getId();
 	        assertNotNull("Data on demand for 'Visit' failed to provide an identifier", id);
 	        Visit visit = visitDao.findVisit(id);

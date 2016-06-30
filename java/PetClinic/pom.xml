@@ -7,70 +7,24 @@
 	<version>0.1.0-SNAPSHOT</version>
 	<name>petclinic</name>
 	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
-		<aspectj.version>1.6.10</aspectj.version>
-		<slf4j.version>1.6.0</slf4j.version>
+		<spring.version>4.3.0.RELEASE</spring.version>
+		<aspectj.version>1.8.9</aspectj.version>
+		<slf4j.version>1.7.21</slf4j.version>
+        <hibernate.version>4.2.21.Final</hibernate.version>  <!--do not go above this version NullPointException -->
+        <tiles.version>3.0.5</tiles.version>
 	</properties>
-	<repositories>
-		<repository>
-			<id>spring-maven-snapshot</id>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<name>Springframework Maven SNAPSHOT Repository</name>
-			<url>http://maven.springframework.org/snapshot</url>
-		</repository>
-		<repository>
-			<id>spring-maven-milestone</id>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<name>Springframework Maven MILESTONE Repository</name>
-			<url>http://maven.springframework.org/milestone</url>
-		</repository>
-	<repository>
-            <id>JBoss Repo</id>
-            <url>http://repository.jboss.com/maven2</url>
-            <name>JBoss Repo</name>
-        </repository>
-    </repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>com.springsource.repository.bundles.release</id>
-			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
-			<url>http://repository.springsource.com/maven/bundles/release</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>com.springsource.repository.bundles.external</id>
-			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
-			<url>http://repository.springsource.com/maven/bundles/external</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>com.springsource.repository.bundles.milestone</id>
-			<name>SpringSource Enterprise Bundle Repository - External Bundle Milestones</name>
-			<url>http://repository.springsource.com/maven/bundles/milestone</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-maven-milestone</id>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<name>Springframework Maven MILESTONE Repository</name>
-			<url>http://maven.springframework.org/milestone</url>
-		</pluginRepository>
-	</pluginRepositories>
 	<dependencies>
 		<!-- General dependencies for standard applications -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
+			<version>1.2.17</version>
 			<!-- Exclusions only required for version 1.2.15 of log4j -->
 			<exclusions>
 				<exclusion>
@@ -109,12 +63,12 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>${aspectj.version}</version>
+			<version>1.8.9</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- Spring dependencies -->
@@ -164,19 +118,12 @@
 	<dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
-            <version>1.8.0.10</version>
+            <version>2.3.4</version>
         </dependency>
-<!--         
-        <dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.13</version>
-</dependency>
--->    
-    <dependency>
+       <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>3.5.0-Final</version>
+            <version>${hibernate.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>cglib</groupId>
@@ -203,7 +150,7 @@
     <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>3.5.0-Final</version>
+            <version>${hibernate.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>cglib</groupId>
@@ -217,13 +164,13 @@
         </dependency>
     <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.0.Final</version>
         </dependency>
     <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.0.2.GA</version>
+            <version>5.1.3.Final</version>
             <exclusions>
                 <exclusion>
                     <groupId>javax.xml.bind</groupId>
@@ -238,12 +185,12 @@
     <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>1.0.0.GA</version>
+            <version>1.1.0.Final</version>
         </dependency>
     <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib-nodep</artifactId>
-            <version>2.2</version>
+            <version>3.2.4</version>
         </dependency>
     <dependency>
             <groupId>javax.transaction</groupId>
@@ -263,7 +210,7 @@
     <dependency>
             <groupId>commons-pool</groupId>
             <artifactId>commons-pool</artifactId>
-            <version>1.5.4</version>
+            <version>1.6</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -274,7 +221,7 @@
     <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>1.3</version>
+            <version>1.4</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -301,7 +248,7 @@
     <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-core</artifactId>
-            <version>2.2.1</version>
+            <version>${tiles.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -312,9 +259,9 @@
     <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-jsp</artifactId>
-            <version>2.2.1</version>
+            <version>${tiles.version}</version>
         </dependency>
-    <dependency>
+           <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
@@ -339,7 +286,7 @@
     <dependency>
             <groupId>org.springframework.webflow</groupId>
             <artifactId>spring-js</artifactId>
-            <version>2.0.8.RELEASE</version>
+            <version>2.4.2.RELEASE</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework</groupId>
@@ -366,7 +313,7 @@
     <dependency>
             <groupId>commons-digester</groupId>
             <artifactId>commons-digester</artifactId>
-            <version>2.0</version>
+            <version>2.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -377,7 +324,7 @@
     <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.2.1</version>
+            <version>1.3.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -388,7 +335,7 @@
     <dependency>
             <groupId>org.tuckey</groupId>
             <artifactId>urlrewritefilter</artifactId>
-            <version>3.1.0</version>
+            <version>4.0.4</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -404,35 +351,45 @@
     <dependency>
             <groupId>javax.el</groupId>
             <artifactId>el-api</artifactId>
-            <version>1.0</version>
+            <version>2.2</version>
             <scope>provided</scope>
         </dependency>
     <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>1.6</version>
+            <version>2.9.4</version>
         </dependency>
     <dependency>
     	<groupId>org.apache.maven.shared</groupId>
     	<artifactId>maven-filtering</artifactId>
-    	<version>1.0-beta-3</version>
+    	<version>3.1.1</version>
     	<type>pom</type>
     	<scope>compile</scope>
     </dependency>
     <dependency>
     	<groupId>org.apache.maven.plugins</groupId>
     	<artifactId>maven-resources-plugin</artifactId>
-    	<version>2.4.1</version>
+    	<version>3.0.1</version>
     	<type>pom</type>
     	<scope>compile</scope>
     </dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+        </dependency>
+    </dependencies>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1-beta-1</version>
+				<version>2.6</version>
 				<!--
 					<configuration> <webXml>target/web.xml</webXml> </configuration>
 				-->
@@ -440,7 +397,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.1</version>
+				<version>3.5.1</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
@@ -449,7 +406,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.5</version>
+				<version>2.19.1</version>
 				<configuration>
 					<excludes>
 						<!--  <exclude>**/*_Roo_*</exclude> -->
@@ -459,7 +416,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2-beta-5</version>
+				<version>2.6</version>
 				<configuration>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
@@ -469,13 +426,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.5</version>
+				<version>2.8.2</version>
 			</plugin>
 			<!-- IDE -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.7</version>  <!--  Note 2.8 does not work with AspectJ aspect path -->
+				<version>2.10</version>  <!--  Note 2.8 does not work with AspectJ aspect path -->
 				<configuration>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>false</downloadJavadocs>
@@ -501,7 +458,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-idea-plugin</artifactId>
-				<version>2.2</version>
+				<version>2.2.1</version>
 				<configuration>
 					<downloadSources>true</downloadSources>
 					<dependenciesAsLibraries>true</dependenciesAsLibraries>
@@ -510,17 +467,17 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
-				<version>1.0</version>
+				<version>1.1</version>
 			</plugin>
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
-				<version>6.1.22</version>
+				<version>6.1.26</version>
 			</plugin>
 		<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>selenium-maven-plugin</artifactId>
-                <version>1.0.1</version>
+                <version>2.3</version>
                 <configuration>
                     <suite>src\main\webapp\selenium\test-suite.xhtml</suite>
                     <browser>*firefox</browser>

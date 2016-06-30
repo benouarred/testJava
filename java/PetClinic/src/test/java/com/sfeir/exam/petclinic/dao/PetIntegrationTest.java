@@ -4,7 +4,9 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -15,7 +17,7 @@ import com.sfeir.exam.petclinic.domain.Pet;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext.xml")
-public class PetIntegrationTest extends TestCase{
+public class PetIntegrationTest{
 
 	  private PetDataOnDemand dod;
 	    
@@ -29,11 +31,18 @@ public class PetIntegrationTest extends TestCase{
 	    	return dod; 
 	    }
 
+		@Before
+		@Transactional
+		public void initTest(){
+			getDod().getRandomPet();
+			assertNotNull("Data on demand for 'Pet' failed to initialize correctly", dod);
+		}
+
 	  
-	    @Test
-	    @Transactional	    
+
+		@Test
+		@Transactional
 	    public void testCountPets() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        long count = petDao.countPets();
 	        assertTrue("Counter for 'Pet' incorrectly reported there were no entries", count > 0);
 	    }
@@ -41,7 +50,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindPet() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Long id = getDod().getRandomPet().getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
 	        Pet obj = petDao.findPet(id);
@@ -52,7 +60,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindAllPets() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        long count = petDao.countPets();
 	        org.junit.Assert.assertTrue("Too expensive to perform a find all test for 'Pet', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 250);
 	        List<Pet> result = petDao.findAllPets();
@@ -63,7 +70,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional	    
 	    public void testFindPetEntries() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        long count = petDao.countPets();
 	        if (count > 20) count = 20;
 	        List<Pet> result = petDao.findPetEntries(0, (int)count);
@@ -74,7 +80,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testFlush() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Long id = getDod().getRandomPet().getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
 	        Pet obj = petDao.findPet(id);
@@ -88,7 +93,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testMerge() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Long id = getDod().getRandomPet().getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
 	        Pet obj = petDao.findPet(id);
@@ -103,7 +107,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testPersist() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Pet obj = getDod().getNewTransientPet(Integer.MAX_VALUE);
 	        assertNotNull("Data on demand for 'Pet' failed to provide a new transient entity", obj);
 	        assertNull("Expected 'Pet' identifier to be null", obj.getId());
@@ -115,7 +118,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testRemove() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Long id = getDod().getRandomPet().getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
 	        Pet obj = petDao.findPet(id);
@@ -128,7 +130,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testFindPetsByNameAndWeight() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Pet obj = getDod().getRandomPet();
 	        Long id = obj.getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
@@ -140,7 +141,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testFindPetsBySendRemindersAndWeightLessThan() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Pet obj = getDod().getRandomPet();
 	        Long id = obj.getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
@@ -152,7 +152,6 @@ public class PetIntegrationTest extends TestCase{
 	    @Test
 	    @Transactional
 	    public void testFindPetsByTypeAndNameLike() {
-	        assertNotNull("Data on demand for 'Pet' failed to initialize correctly", getDod().getRandomPet());
 	        Pet obj = getDod().getRandomPet();
 	        Long id = obj.getId();
 	        assertNotNull("Data on demand for 'Pet' failed to provide an identifier", id);
