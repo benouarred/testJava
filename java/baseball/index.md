@@ -26,6 +26,8 @@
 * La méthode **extractYear**
  * Problème de **lastIndexOf** il manque le +1
  * Le trim fait le job pour remonter l'année.
+ * Mais il vaut mieux utiliser Calendar pour ça
+ * Ou joda time en java 8
 
 ## Remarques et possibilités de discution
 * Constructeur à **4** paramètres
@@ -38,4 +40,7 @@
 * Est-ce logique de mettre toutes les classes dans le même package?
 
 ## Evolution possibles
+* Demander à ce que le toString() de Team retourne la liste des joueur regroupé par type de poste
+=> Une solution est de remplacer le HashSet par un TreeSet, puis d'implémeter le compareTo dans la classe Player. 
+Attention pour bien faire il faut aussi réimplémenter le equal() et hasCode() 
 * Possiblité d'ajouter le test chaine de caractère "null" et valeur null.
