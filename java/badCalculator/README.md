@@ -3,7 +3,7 @@
 ## Scénario
 
 Vous venez d'être recruté au 42eme étage et devez maintenant assurer la TMA du projet Calculator.
-C'est un système critique utilisé au coeur du SI d'un grande banque. La livraison est pour bientôt. Malheureusement il reste quelques bugs...
+C'est un système critique utilisé au coeur du SI d'une grande banque. La livraison est pour bientôt. Malheureusement il reste quelques bugs...
 A vous de les corriger et de faire tout ce qui vous semble nécessaire pour que ce code soit maintenable et évolutif.
 
 ## Indications
