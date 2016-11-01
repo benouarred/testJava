@@ -77,7 +77,7 @@ public class App {
 		davidOrtiz.setCurrentTeam(redSox);
 		davidWells.setCurrentTeam(redSox);
 
-		//TODO: Add Jhon Farrell but he is not a Player?! How can I do that? Java Is so complicated
+		//TODO: Add Jhon Farrell as a Manager?! How can I do that? Java Is so complicated
 		
 		System.out.println(MLB_LOGO);
 		System.out.println(" ");
