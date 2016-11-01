@@ -1,8 +1,9 @@
-# Test Recrutement Baseball players
+# Test Recrutement :baseball: players
 
 ## Description du test au candidat
-Nous avons ici une application qui permet de gérer / afficher des équipes de Baseball. D'après la spécification chaque équipe qui sera affichée doit:
-1. Afficher le **LOGO** de la MLB (Major League of Baseball),
+Nous avons ici une application qui permet de gérer / afficher des équipes de :baseball: . D'après la spécification chaque équipe qui sera affichée doit:
+
+1. Afficher le **LOGO** de la MLB (Major League of :baseball: ),
 2. Afficher **tous les joueurs** sans exception **selon leur position** (Il ne doit pas en manquer),
 3. Corriger les bugs s'il y en a,
 4. Améliorer le code.
