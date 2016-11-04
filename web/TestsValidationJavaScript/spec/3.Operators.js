@@ -45,8 +45,12 @@ describe('Operators', function() {
     });
 
     it('Operators - 7', function() {
-        var result = true && false || true && true;
+        var result = true && true || false && false;
         expect(result).toBe( _ );
     });
 
+    it('Operators - 8', function() {
+        var result = false && true || true && true;
+        expect(result).toBe( _ );
+    });
 });
