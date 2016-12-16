@@ -26,7 +26,8 @@ module.exports = {
     loaders: [
       {
         test: /\.(j|t)s(x?)$/,
-        loader: 'ts-loader' },
+        loader: 'ts-loader?entryFileIsJs=true'
+      },
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
