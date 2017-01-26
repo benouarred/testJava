@@ -26,6 +26,7 @@ module.exports = {
     loaders: [
       {
         test: /\.(j|t)s(x?)$/,
+        exclude: '/node_modules/',
         loader: 'ts-loader?entryFileIsJs=true'
       },
       {
