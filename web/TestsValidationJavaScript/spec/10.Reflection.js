@@ -1,3 +1,9 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+var chai = require('chai');
+var expect = chai.expect;
+mocha.suite.emit('pre-require', this, 'solution', mocha);
+
 describe('Reflection : ', function(){
 
     it("Reflection - 1", function() {
@@ -8,8 +14,8 @@ describe('Reflection : ', function(){
             keys.push( _ );
             values.push( _);
         }
-        expect(keys).toEqual(['name','age','unemployed']);
-        expect(values).toEqual(['Thierry LAU', 30 , true]);
+        expect(keys).to.deep.equal(['name','age','unemployed']);
+        expect(values).to.deep.equal(['Thierry LAU', 30 , true]);
     });
 
 
@@ -30,8 +36,8 @@ describe('Reflection : ', function(){
         for (propertyName in b) {
             keys.push(propertyName);
         }
-        expect(keys.length).toBe( _ );
-        expect(keys).toEqual( _ );
+        expect(keys.length).to.equal( _ );
+        expect(keys).to.deep.equal( _ );
 
         var ownKeys = [];
         for(propertyName in b) {
@@ -39,16 +45,18 @@ describe('Reflection : ', function(){
                 ownKeys.push(propertyName);
             }
         }
-        expect(ownKeys.length).toBe( _ );
-        expect(ownKeys).toEqual( _ );
+        expect(ownKeys.length).to.equal( _ );
+        expect(ownKeys).to.deep.equal( _ );
     });
 
     it("Reflection - 3", function () {
         var a = new A();
         var b = new B();
-        expect(typeof(a.constructor)).toBe( _ );
-        expect(a.constructor.name).toBe( _ );
-        expect(b.constructor.name).toBe( _ );
+        expect(typeof(a.constructor)).to.equal( _ );
+        expect(a.constructor.name).to.equal( _ );
+        expect(b.constructor.name).to.equal( _ );
     });
 
 });
+
+mocha.run();

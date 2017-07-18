@@ -1,32 +1,38 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+var chai = require('chai');
+var expect = chai.expect;
+mocha.suite.emit('pre-require', this, 'solution', mocha);
+
 describe('Objects', function(){
 
     it('Objects - 1', function(){
         var result = {};
-        expect(typeof(result)).toBe( _ );
+        expect(typeof(result)).to.equal( _ );
     });
 
     it('Objects - 2', function(){
         var person = {
             // _
         };
-        expect(person.name).toBe('Jean Paul');
-        expect(person.age).toBe(51);
+        expect(person.name).to.equal('Jean Paul');
+        expect(person.age).to.equal(51);
     });
 
     it('Objects - 3', function(){
         var person = {};
         // _
         // _
-        expect(person.name).toBe('Jean Paul');
-        expect(person.age).toBe(51);
+        expect(person.name).to.equal('Jean Paul');
+        expect(person.age).to.equal(51);
     });
 
     it('Objects - 4', function(){
         var person = {};
         // _
         // _
-        expect(person.name).toBe('Jean Paul');
-        expect(person['phone-number']).toBe('0145254515');
+        expect(person.name).to.equal('Jean Paul');
+        expect(person['phone-number']).to.equal('0145254515');
     });
 
     it('Objects - 5', function(){
@@ -37,8 +43,10 @@ describe('Objects', function(){
                 return _ ;
             }
         };
-        expect(person.toString()).toBe('My name is Jean Paul and I am 25 years old');
+        expect(person.toString()).to.equal('My name is Jean Paul and I am 25 years old');
     });
 
 
 });
+
+mocha.run();

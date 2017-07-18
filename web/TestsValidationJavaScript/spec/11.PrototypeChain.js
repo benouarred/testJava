@@ -1,3 +1,9 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+var chai = require('chai');
+var expect = chai.expect;
+mocha.suite.emit('pre-require', this, 'solution', mocha);
+
 describe('Prototype chain', function(){
 
     var father = {
@@ -10,31 +16,33 @@ describe('Prototype chain', function(){
     child.b = 2;
 
     it("Prototype chain - 1", function(){
-        expect(child.hasOwnProperty('a')).toBe( _ );
-        expect(child.hasOwnProperty('b')).toBe( _ );
+        expect(child.hasOwnProperty('a')).to.equal( _ );
+        expect(child.hasOwnProperty('b')).to.equal( _ );
     });
 
     it("Prototype chain - 2", function () {
-        expect(child.a).toBe( _ );
-        expect(child.b).toBe( _ );
+        expect(child.a).to.equal( _ );
+        expect(child.b).to.equal( _ );
     });
 
     it("Prototype chain - 3", function () {
         delete child.b;
-        expect(child.b).toBe( _ );
+        expect(child.b).to.equal( _ );
     });
 
     it("Prototype chain - 4", function () {
-        expect(child.hasOwnProperty('c')).toBe( _ );
+        expect(child.hasOwnProperty('c')).to.equal( _ );
     });
 
     it("Prototype chain - 5", function () {
-        expect(child.c).toBe( _ );
+        expect(child.c).to.equal( _ );
     });
 
     it("Prototype chain - 6", function () {
-        expect(child.d).toBe( _ );
+        expect(child.d).to.equal( _ );
     });
 
 
 });
+
+mocha.run();

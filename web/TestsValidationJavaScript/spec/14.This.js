@@ -1,3 +1,9 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+var chai = require('chai');
+var expect = chai.expect;
+mocha.suite.emit('pre-require', this, 'solution', mocha);
+
 describe('This', function(){
 
     it("This - 1", function () {
@@ -7,7 +13,7 @@ describe('This', function(){
                 return "Hello, my name is " + _;
             }
         };
-        expect(person.intro()).toBe("Hello, my name is bob");
+        expect(person.intro()).to.equal("Hello, my name is bob");
     });
 
 
@@ -23,7 +29,7 @@ describe('This', function(){
 
         window.name = 'Peter';
 
-        expect( _ ).toBe("Hello, my name is Peter");
+        expect( _ ).to.equal("Hello, my name is Peter");
     });
 
 
@@ -36,9 +42,11 @@ describe('This', function(){
         };
 
         var message = person.intro.call( _ );
-        expect(message).toBe("Hello, my name is Frank");
+        expect(message).to.equal("Hello, my name is Frank");
     });
 
 
 
 });
+
+mocha.run();

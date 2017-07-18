@@ -1,9 +1,15 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+var chai = require('chai');
+var expect = chai.expect;
+mocha.suite.emit('pre-require', this, 'solution', mocha);
+
 describe('Scopes', function(){
 
     variable = 42;
 
     it("Scopes - 1", function() {
-        expect(variable).toBe( _ );
+        expect(variable).to.equal( _ );
     });
 
 
@@ -12,12 +18,14 @@ describe('Scopes', function(){
 
         (function() {
             var anotherFruit = "orange";
-            expect(fruit).toBe( _ );
-            expect(anotherFruit).toBe( _ );
+            expect(fruit).to.equal( _ );
+            expect(anotherFruit).to.equal( _ );
         })();
 
-        expect(fruit).toBe( _ );
-        expect(typeof(anotherFruit)).toBe( _ );
+        expect(fruit).to.equal( _ );
+        expect(typeof(anotherFruit)).to.equal( _ );
     });
 
 });
+
+mocha.run();

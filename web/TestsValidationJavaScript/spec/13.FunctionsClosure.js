@@ -1,3 +1,9 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+var chai = require('chai');
+var expect = chai.expect;
+mocha.suite.emit('pre-require', this, 'solution', mocha);
+
 describe('Functions and Closure', function(){
 
     it("Functions and Closure - 1", function() {
@@ -6,12 +12,12 @@ describe('Functions and Closure', function(){
             result = "b";
         }
         changeResult();
-        expect(result).toBe( _ );
+        expect(result).to.equal( _ );
     });
 
     it("Functions and Closure - 2", function() {
         var action = _;
-        expect(action(4)).toBe(12);
+        expect(action(4)).to.equal(12);
     });
 
 
@@ -20,13 +26,13 @@ describe('Functions and Closure', function(){
 
         (function( _ ) {
             var anotherValue = "blue";
-            expect(val).toBe( "orange" );
-            expect(typeof(value)).toBe( _ );
-            expect(typeof(anotherValue)).toBe( _ );
+            expect(val).to.equal( "orange" );
+            expect(typeof(value)).to.equal( _ );
+            expect(typeof(anotherValue)).to.equal( _ );
         })( _ );
 
-        expect(typeof(anotherValue)).toBe( _ );
-        expect(typeof(value)).toBe( _ );
+        expect(typeof(anotherValue)).to.equal( _ );
+        expect(typeof(value)).to.equal( _ );
     });
 
 
@@ -40,8 +46,8 @@ describe('Functions and Closure', function(){
             // _
         };
 
-        expect(add(1,2,3,4,5)).toBe(15);
-        expect(add(4,7,-2)).toBe(9);
+        expect(add(1,2,3,4,5)).to.equal(15);
+        expect(add(4,7,-2)).to.equal(9);
     });
 
 
@@ -52,7 +58,7 @@ describe('Functions and Closure', function(){
 
         var result = invokee.call("I am this!", "Where did it come from?");
 
-        expect(result).toBe( _ );
+        expect(result).to.equal( _ );
     });
 
 
@@ -63,7 +69,9 @@ describe('Functions and Closure', function(){
 
         var result = invokee.apply("I am this!", ["I am arg1","I am arg2"]);
 
-        expect(result).toBe( _ );
+        expect(result).to.equal( _ );
     });
 
 });
+
+mocha.run();

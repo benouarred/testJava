@@ -1,3 +1,9 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+var chai = require('chai');
+var expect = chai.expect;
+mocha.suite.emit('pre-require', this, 'solution', mocha);
+
 describe('Truthyness', function(){
 
     it('Truthyness - 1', function(){
@@ -7,7 +13,7 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).to.equal( _ );
     });
 
     it('Truthyness - 2', function(){
@@ -17,7 +23,7 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).to.equal( _ );
     });
 
     it('Truthyness - 3', function(){
@@ -27,7 +33,7 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).to.equal( _ );
     });
 
     it('Truthyness - 4', function(){
@@ -37,9 +43,9 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).to.equal( _ );
     });
-	
+
 	it('Truthyness - 5', function(){
         var result;
         if(undefined){
@@ -47,7 +53,9 @@ describe('Truthyness', function(){
         } else {
             result = false;
         }
-        expect(result).toBe( _ );
+        expect(result).to.equal( _ );
     });
 
 });
+
+mocha.run();

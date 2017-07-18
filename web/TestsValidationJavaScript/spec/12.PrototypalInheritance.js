@@ -1,3 +1,9 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+var chai = require('chai');
+var expect = chai.expect;
+mocha.suite.emit('pre-require', this, 'solution', mocha);
+
 describe('Prototype inheritance', function(){
 
     var Mammal = function(name) {
@@ -12,7 +18,7 @@ describe('Prototype inheritance', function(){
 
     it("Prototype inheritance - 1", function() {
         var eric  = new Mammal("Eric");
-        expect(eric.sayHi()).toBe( _ );
+        expect(eric.sayHi()).to.equal( _ );
     });
 
     Mammal.prototype.favouriteSaying = function() {
@@ -21,7 +27,7 @@ describe('Prototype inheritance', function(){
 
     it("Prototype inheritance - 2", function() {
         var bobby = new Mammal("Bobby");
-        expect(bobby.favouriteSaying()).toBe( _ );
+        expect(bobby.favouriteSaying()).to.equal( _ );
     });
 
     it("Prototype inheritance - 3", function() {
@@ -29,7 +35,7 @@ describe('Prototype inheritance', function(){
         Mammal.prototype.numberOfLettersInName = function() {
             return this.name.length;
         };
-        expect(paul.numberOfLettersInName()).toBe( _ );
+        expect(paul.numberOfLettersInName()).to.equal( _ );
     });
 
     function extend(child, supertype){
@@ -45,8 +51,10 @@ describe('Prototype inheritance', function(){
 
     it("Prototype inheritance - 4", function() {
         var lenny = new Bat("Lenny", "1.5m");
-        expect(lenny.sayHi()).toBe( _ );
-        expect(lenny.wingspan).toBe( _ );
+        expect(lenny.sayHi()).to.equal( _ );
+        expect(lenny.wingspan).to.equal( _ );
     });
 
 });
+
+mocha.run();
