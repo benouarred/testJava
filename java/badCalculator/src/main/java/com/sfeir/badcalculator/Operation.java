@@ -14,23 +14,26 @@ public class Operation {
     public static Integer compute(String inputString) {
         input = inputString;
         extractor = new OperationExtractor(inputString);
-        int opsi = input.indexOf(' ');
-        int opei = input.lastIndexOf(' ');
-        String operation = input.substring(opsi + 1, opei);
+//        int opsi = input.indexOf(' ');
+//        int opei = input.lastIndexOf(' ');
+//        String operation = input.substring(opsi + 1, opei);
+
+        String[] elements = input.split(" ");//- remplacer les indexOf par String.split ou une RegExp
+        String operation = elements[1];
 
         //System.out.println("_" + operation + "_");
 
-        if(operation == "plus") {
+        if(operation.equals("plus")) {//- equals VS ==
             System.out.println("Plus");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) + Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        } else if (operation == "moins") {
+        } else if (operation.equals("moins")) {
             System.out.println("Moins");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) - Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        } else if (operation == "fois") {
+        } else if (operation.equals("fois")) {
             System.out.println("Fois");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) * Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-        }  else if (operation == "divisÃ©") {
-            System.out.println("Divisï¿½");
+        }  else if (operation.equals("divisé")) {
+            System.out.println("Division");
             return Integer.parseInt(input.substring(0, input.indexOf(' '))) / Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
         }
 

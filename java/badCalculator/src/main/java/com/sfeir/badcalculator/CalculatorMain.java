@@ -4,20 +4,30 @@ import java.util.Vector;
 
 public class CalculatorMain {
 
-    static Vector operations = new Vector();
-
-    {
-        operations.add("3 plus 4");
-        operations.add("3 moins 4");
-        operations.add("3 fois 4");
-        operations.add("3 divisï¿½ 4");
-        operations.add("2 plus 6");
-        operations.add("2 moins 12");
-        operations.add("10 divisÃ© 3");
-    }
+//    static Vector operations = new Vector();
+//
+//    {
+//        operations.add("3 plus 4");
+//        operations.add("3 moins 4");
+//        operations.add("3 fois 4");
+//        operations.add("3 divisï¿½ 4");
+//        operations.add("2 plus 6");
+//        operations.add("2 moins 12");
+//        operations.add("10 divisÃ© 3");
+//    }
 
     public static void main(String[] args) {
 
+    	Vector operations = new Vector();
+		
+    	operations.add("3 plus 4");
+        operations.add("3 moins 4");
+        operations.add("3 fois 4");
+        operations.add("3 divisé 4");
+        operations.add("2 plus 6");
+        operations.add("2 moins 12");
+        operations.add("10 divisé 3");
+    	
         String op = (String) operations.get(0);
         Calculator.compute(op);
 

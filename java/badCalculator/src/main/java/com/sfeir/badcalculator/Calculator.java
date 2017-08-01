@@ -6,7 +6,7 @@ public class Calculator {
         Calculator.compute("3 plus 4");
         Calculator.compute("3 moins 4");
         Calculator.compute("3 fois 4");
-        Calculator.compute("3 divisï¿½ 4");
+        Calculator.compute("3 divisé 4");
     }
 
     public static void compute(String input) {
