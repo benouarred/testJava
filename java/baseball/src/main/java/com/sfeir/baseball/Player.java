@@ -1,35 +1,26 @@
 	package com.sfeir.baseball;
 
-public class Player {
+public class Player extends Person {
+	private Position position;
 	
-	String firstName = null;
-	final String name = null;
-	private Team currentTeam;
-	public String getName() {
-		return name;
+	public Position getPosition() {
+		return position;
 	}
-	
-	public void setName(String name) {
-		//TODO: Don't know why that thing does not work well?
-		// this.name = name;
+
+	public void setPosition(Position position) {
+		this.position = position;
 	}
-	public Team getCurrentTeam() {
-		return currentTeam;
-	}
-	public void setCurrentTeam(Team currentTeam) {
-		this.currentTeam = currentTeam;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "\nPlayer [name=" + getName() + ", firstName=" + firstName + ", currentTeam="
-				+ getCurrentTeam() + ", position="+ position +"]";
+		return "Player "+super.toString()+"[position=" + position + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		int prime = 31, result = 1;
-		result = prime * result + this.firstName.hashCode();
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((position == null) ? 0 : position.hashCode());
 		return result;
 	}
 
@@ -37,25 +28,14 @@ public class Player {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
 		Player other = (Player) obj;
-		if (firstName == null) {
-			if (other.firstName != null)
-				return false;
-		} else if (firstName == other.firstName)
-			return true;
-		return false;
+		if (position != other.position)
+			return false;
+		return true;
 	}
-	
-	String position;
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
+		
 }

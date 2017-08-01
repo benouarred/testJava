@@ -1,6 +1,5 @@
 package com.sfeir.baseball;
 
-import java.util.Date;
 import java.util.HashSet;
 
 /**
@@ -16,10 +15,7 @@ import java.util.HashSet;
  * <b>A:</b> The baby will stop whining after a while. </p>
  */
 public class App {
-	static String MLB_LOGO;
-
-	{
-		MLB_LOGO = "               Boston  Red Sox Baseball  Boston   Red Sox  Baseball \n"
+	static String MLB_LOGO = "               Boston  Red Sox Baseball  Boston   Red Sox  Baseball \n"
 				+ "              BA                            SEB                   A \n"
 				+ "              LL                   S.F.Gia    BAS                 EB \n"
 				+ "              AL                  LBoston\"    A\'s                 \"B \n"
@@ -32,7 +28,6 @@ public class App {
 				+ "               l                 and\"A\'s\"BASEBALLS.F.             Gi \n"
 				+ "                a                ntsBASEBALLS.F.GiaBA            S\n"
 				+ "                 S.F. Giants Baseball S.F. Giants Baseball'";
-	}
 
 	public static void main(String[] args) {
  
@@ -41,34 +36,42 @@ public class App {
 		String firstNamePlayer1 = "David";
 		Player davidOrtiz = new Player();
 		davidOrtiz.setName(namePlayer1);
-		davidOrtiz.firstName = firstNamePlayer1;
-		davidOrtiz.setPosition("Designated Hitter");
+		davidOrtiz.setFirstName(firstNamePlayer1);
+		davidOrtiz.setPosition(Position.DESIGNATEDHITTER);
 
 		// David Price
 		String namePlayer2 = "Price";
 		String firstNamePlayer2 = "David";
 		Player davidPrice = new Player();
 		davidPrice.setName(namePlayer2);
-		davidPrice.firstName = firstNamePlayer2;
-		davidPrice.setPosition("Pitcher");
+		davidPrice.setFirstName(firstNamePlayer2);
+		davidPrice.setPosition(Position.PITCHER);
 
 		// David Wells
 		String namePlayer3 = "Wells";
 		String firstNamePlayer3 = "David";
 		Player davidWells = new Player();
 		davidWells.setName(namePlayer3);
-		davidWells.firstName = firstNamePlayer3;
-		davidWells.setPosition("Pitcher");
+		davidWells.setFirstName(firstNamePlayer3);
+		davidWells.setPosition(Position.PITCHER);
 
+		//TODO: Add Jhon Farrell as a Manager?! How can I do that? Java Is so complicated
+		String nameManager = "Farrell";
+		String firstNameManager = "Jhon";
+		Person jhonFarrell = new Person();
+		jhonFarrell.setName(nameManager);
+		jhonFarrell.setFirstName(firstNameManager);
+		
 		// R
-		Team redSox = new Team("Red Sox", "Boston", "Fenway Park", true);
-
+		Team redSox = new Team("Red Sox", "Boston", "Fenway Park", true, jhonFarrell);
+		TeamManagement teamManagement = new TeamManagement(redSox);
+		
 		// Add David Price, David Ortiz and David Wells
 		// We had such a great team now two super famous pitchers! We gonna win
 		// the MLB.
-		HashSet allPlayers1 = redSox.addAPlayerToATeam(redSox.getPlayers(), davidOrtiz);
-		HashSet allPlayers2 = redSox.addAPlayerToATeam(allPlayers1, davidPrice);
-		HashSet allPlayers3 = redSox.addAPlayerToATeam(allPlayers2, davidWells);
+		HashSet<Player> allPlayers1 = teamManagement.addAPlayerToATeam(redSox.getPlayers(), davidOrtiz);
+		HashSet<Player> allPlayers2 = teamManagement.addAPlayerToATeam(allPlayers1, davidPrice);
+		HashSet<Player> allPlayers3 = teamManagement.addAPlayerToATeam(allPlayers2, davidWells);
 
 		redSox.setPlayers(allPlayers3);
 
@@ -77,11 +80,11 @@ public class App {
 		davidOrtiz.setCurrentTeam(redSox);
 		davidWells.setCurrentTeam(redSox);
 
-		//TODO: Add Jhon Farrell as a Manager?! How can I do that? Java Is so complicated
+		
 		
 		System.out.println(MLB_LOGO);
 		System.out.println(" ");
 
-		DisplayTheTeamUtils.displayTheTeam(redSox);
+		DisplayTheTeamUtils.displayTheTeam(teamManagement);
 	}
 }
