@@ -1,4 +1,4 @@
-package com.sfeir.badcalculator.strategy;
+package com.sfeir.badcalculator;
 
 public class CalculatorMain {
 

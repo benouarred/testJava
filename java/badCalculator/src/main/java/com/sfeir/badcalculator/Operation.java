@@ -1,4 +1,4 @@
-package com.sfeir.badcalculator.strategy;
+package com.sfeir.badcalculator;
 
 public enum Operation implements Calcul {// - avec ou sans enum
 	PLUS {
