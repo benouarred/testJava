@@ -13,7 +13,8 @@ import com.sfeir.exam.petclinic.domain.Owner;
 public class OwnerDao extends AbstractPersonDao {
 
     public long countOwners() {
-    	throw new UnsupportedOperationException("to be implemented");
+        Query query = getEntityManager().createQuery("SELECT count(*) from Owner");
+        return ((Number) query.getSingleResult()).longValue();
     }
     
     @SuppressWarnings("unchecked")
