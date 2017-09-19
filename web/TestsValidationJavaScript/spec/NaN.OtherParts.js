@@ -23,7 +23,7 @@ describe('JavaScript: The Other Parts', function() {
     it("Bonus 4: l'épouvantail de Crockford", function() {
         with({Math: {cos: x => x + "zza", PI: "pi"}})
         {
-            with(self) {
+            with(self) with(Math) {
                 expect( cos(PI) ).toBe( _ );
             }
         }
